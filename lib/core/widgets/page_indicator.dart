@@ -1,23 +1,25 @@
+import 'package:dr_chat/Features/Onboarding/data/onboarding_list.dart';
 import 'package:dr_chat/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingPageIndicator extends StatelessWidget {
-  const OnboardingPageIndicator({super.key});
+  const OnboardingPageIndicator({super.key, required this.pageController});
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return SmoothPageIndicator(
-      count: 7,
+      count: onboardinglist.length,
       effect: ExpandingDotsEffect(
         activeDotColor: AppColors.primaryColor,
-        dotColor: Colors.white,
+        dotColor: AppColors.secondColor,
         dotHeight: 8.h,
         dotWidth: 8.w,
         expansionFactor: 3,
       ),
-      controller: PageController(),
+      controller: pageController,
     );
   }
-}
+  }

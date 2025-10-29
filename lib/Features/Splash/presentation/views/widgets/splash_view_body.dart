@@ -1,10 +1,11 @@
 import 'package:dr_chat/Features/Splash/presentation/views/widgets/custom_button.dart';
-import 'package:dr_chat/core/widgets/page_indicator.dart';
+import 'package:dr_chat/core/utils/routes.dart';
 import 'package:dr_chat/core/utils/assets_data.dart';
 import 'package:dr_chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
@@ -24,12 +25,12 @@ class SplashViewBody extends StatelessWidget {
               child: SvgPicture.asset(AssetsData.welcomeImage),
             ),
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 25.h),
 
           Text(
             textAlign: TextAlign.center,
             'Welcome to Dr Chat your personal therapist chatbot',
-            style: Styles.textStyle22.copyWith(fontWeight: FontWeight.bold),
+            style: Styles.textStyle22,
           ),
           SizedBox(height: 20.h),
           Text(
@@ -38,10 +39,10 @@ class SplashViewBody extends StatelessWidget {
             'Discover how Dr Chat can support your mental health journey with personalized,\n AI-driven therapy sessions',
             style: Styles.textStyle16,
           ),
-          SizedBox(height: 30.h),
-          const OnboardingPageIndicator(),
-          SizedBox(height: 50.h),
-          const CustomButton(),
+          SizedBox(height: 65.h),
+          CustomButton(
+            onTap: () => GoRouter.of(context).push(AppRouter.kOnboardingView),
+          ),
         ],
       ),
     );
