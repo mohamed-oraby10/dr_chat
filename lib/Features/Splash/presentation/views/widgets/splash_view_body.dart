@@ -1,4 +1,5 @@
 import 'package:dr_chat/Features/Splash/presentation/views/widgets/custom_button.dart';
+import 'package:dr_chat/core/widgets/page_indicator.dart';
 import 'package:dr_chat/core/utils/assets_data.dart';
 import 'package:dr_chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class SplashViewBody extends StatelessWidget {
               child: SvgPicture.asset(AssetsData.welcomeImage),
             ),
           ),
+          SizedBox(height: 20.h),
 
           Text(
             textAlign: TextAlign.center,
@@ -36,8 +38,9 @@ class SplashViewBody extends StatelessWidget {
             'Discover how Dr Chat can support your mental health journey with personalized,\n AI-driven therapy sessions',
             style: Styles.textStyle16,
           ),
-          SizedBox(height: 20.h),
-
+          SizedBox(height: 30.h),
+          const OnboardingPageIndicator(),
+          SizedBox(height: 50.h),
           const CustomButton(),
         ],
       ),
