@@ -1,10 +1,62 @@
+import 'package:dr_chat/core/utils/assets_data.dart';
+import 'package:dr_chat/core/utils/colors.dart';
+import 'package:dr_chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Container();
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+
+        children: [
+          SvgPicture.asset(AssetsData.welcomeImage),
+          Text(
+            textAlign: TextAlign.center,
+            'Welcome to Dr Chat your personal therapist chatbot',
+            style: Styles.textStyle22.copyWith(fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 20.h),
+          Text(
+            textAlign: TextAlign.center,
+
+            'Discover how Dr Chat can support your mental health journey with personalized,\n AI-driven therapy sessions',
+            style: Styles.textStyle16,
+          ),
+          SizedBox(height: 20.h),
+
+          const CustomButton(),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50.h,
+      width: 170.w,
+      child: TextButton(
+        style: TextButton.styleFrom(backgroundColor: AppColors.primaryColor),
+        onPressed: () {},
+        child: Text(
+          'Let\'s Go',
+          style: Styles.textStyle16.copyWith(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 }
