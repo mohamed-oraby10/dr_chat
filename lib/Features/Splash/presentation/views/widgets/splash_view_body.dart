@@ -1,5 +1,5 @@
+import 'package:dr_chat/Features/Splash/presentation/views/widgets/custom_button.dart';
 import 'package:dr_chat/core/utils/assets_data.dart';
-import 'package:dr_chat/core/utils/colors.dart';
 import 'package:dr_chat/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +16,14 @@ class SplashViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
 
         children: [
-          SvgPicture.asset(AssetsData.welcomeImage),
+          ClipRect(
+            child: Align(
+              alignment: Alignment.topCenter,
+              heightFactor: 0.88,
+              child: SvgPicture.asset(AssetsData.welcomeImage),
+            ),
+          ),
+
           Text(
             textAlign: TextAlign.center,
             'Welcome to Dr Chat your personal therapist chatbot',
@@ -33,29 +40,6 @@ class SplashViewBody extends StatelessWidget {
 
           const CustomButton(),
         ],
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 50.h,
-      width: 170.w,
-      child: TextButton(
-        style: TextButton.styleFrom(backgroundColor: AppColors.primaryColor),
-        onPressed: () {},
-        child: Text(
-          'Let\'s Go',
-          style: Styles.textStyle16.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
       ),
     );
   }
