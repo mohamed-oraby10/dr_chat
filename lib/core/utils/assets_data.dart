@@ -6,4 +6,5 @@ abstract class AssetsData {
   static const costImage = 'assets/images/Banknote-amico.svg';
   static const supportImage = 'assets/images/Medical prescription-amico.svg';
   static const botImage = 'assets/images/Chat bot-amico (1).svg';
+  static const googleIcon = 'assets/images/LOGO.svg';
 }

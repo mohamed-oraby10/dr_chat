@@ -14,7 +14,7 @@ class SecondButton extends StatelessWidget {
       child: TextButton(
         onPressed: onTap,
         style: TextButton.styleFrom(
-          side: BorderSide(width: .5),
+          side: BorderSide(width: .35),
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
