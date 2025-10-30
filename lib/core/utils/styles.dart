@@ -11,7 +11,7 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
   );
 
-  static final textStyle18 = TextStyle(fontSize: 18.sp);
+  static final textStyle18 = TextStyle(fontSize: 18.sp,);
   static final textStyle20 = TextStyle(fontSize: 20.sp);
   static final textStyle22 = TextStyle(
     fontSize: 22.sp,

@@ -1,4 +1,5 @@
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/forget_password_row.dart';
+import 'package:dr_chat/Features/Auth/presentation/views/widgets/second_button.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/text_fields_section.dart';
 import 'package:dr_chat/core/utils/styles.dart';
 import 'package:dr_chat/core/widgets/main_button.dart';
@@ -24,8 +25,7 @@ class LoginViewBody extends StatelessWidget {
           SizedBox(height: 30.h),
           MainButton(text: 'Sign In', onTap: () {}),
           SizedBox(height: 20.h),
-
-         
+          const SecondButton(text: 'Create Account'),
         ],
       ),
     );

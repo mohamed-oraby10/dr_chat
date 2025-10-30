@@ -19,7 +19,7 @@ class NextOnboardingView extends StatelessWidget {
           backgroundColor: AppColors.thirdColor,
           textColor: AppColors.primaryColor,
           onTap: () {
-            GoRouter.of(context).push(AppRouter.kLoginView);
+            GoRouter.of(context).push(AppRouter.kChatFreeView);
           },
         ),
         CustomTextButton(
