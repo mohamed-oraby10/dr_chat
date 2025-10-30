@@ -2,10 +2,10 @@ import 'package:dr_chat/Features/Onboarding/data/models/onboarding_model.dart';
 import 'package:dr_chat/Features/Onboarding/presentation/views/widgets/next_onboarding_view.dart';
 import 'package:dr_chat/core/utils/colors.dart';
 import 'package:dr_chat/core/utils/styles.dart';
+import 'package:dr_chat/core/widgets/custom_clip_image.dart';
 import 'package:dr_chat/core/widgets/page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CustomOnboarding extends StatelessWidget {
   const CustomOnboarding({
@@ -25,13 +25,7 @@ class CustomOnboarding extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
 
       children: [
-        ClipRect(
-          child: Align(
-            alignment: Alignment.topCenter,
-            heightFactor: 0.88,
-            child: SvgPicture.asset(onboardingModel.image),
-          ),
-        ),
+        CustomClipImage(image: onboardingModel.image),
         SizedBox(height: 20.h),
 
         Text(
