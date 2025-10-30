@@ -1,11 +1,9 @@
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/continue_section.dart';
-import 'package:dr_chat/Features/Auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:dr_chat/Features/Auth/presentation/views/widgets/register_section.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/text_fields_section.dart';
 import 'package:dr_chat/core/utils/styles.dart';
-import 'package:dr_chat/core/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegisterViewBody extends StatelessWidget {
   const RegisterViewBody({super.key});
@@ -22,17 +20,8 @@ class RegisterViewBody extends StatelessWidget {
           SizedBox(height: 30.h),
           const TextFieldsSection(),
           SizedBox(height: 20.h),
-          CustomTextFormField(
-            preIcon: Icon(FontAwesomeIcons.key, color: Colors.black, size: 22),
-            hintText: 'Confirm Password',
-            sufIcon: IconButton(
-              onPressed: () {},
-              icon: Icon(FontAwesomeIcons.eye, size: 22, color: Colors.black),
-            ),
-          ),
-          SizedBox(height: 50.h),
-          MainButton(text: 'Create Account', onTap: () {}),
-       const  ContinueWithGoogleSection(),
+          const RegisterSection(),
+          const ContinueWithGoogleSection(),
         ],
       ),
     );

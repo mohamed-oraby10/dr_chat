@@ -15,7 +15,7 @@ class GoogleButton extends StatelessWidget {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
         child: TextButton(
           onPressed: () {},
-          style: TextButton.styleFrom(side: BorderSide(width: .35)),
+          style: TextButton.styleFrom(side: BorderSide(width: .8.w)),
           child: SvgPicture.asset(AssetsData.googleIcon),
         ),
       ),

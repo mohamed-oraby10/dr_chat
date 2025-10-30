@@ -23,9 +23,8 @@ class ChatFreeStack extends StatelessWidget {
               Text(
                 textAlign: TextAlign.center,
                 'Start chatting with Dr Chat now. You can ask me anything about therapy',
-                style: Styles.textStyle18.copyWith(
+                style: Styles.textStyle16.copyWith(
                   color: AppColors.primaryColor,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(height: 30.h),
@@ -34,9 +33,8 @@ class ChatFreeStack extends StatelessWidget {
               Text(
                 textAlign: TextAlign.center,
                 'Or login to keep your conversations',
-                style: Styles.textStyle18.copyWith(
+                style: Styles.textStyle16.copyWith(
                   color: AppColors.primaryColor,
-                  fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(height: 20.h),
