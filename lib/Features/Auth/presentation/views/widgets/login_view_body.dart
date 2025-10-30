@@ -1,3 +1,4 @@
+import 'package:dr_chat/Features/Auth/presentation/views/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -5,8 +6,6 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [],
-    );
+    return Column(children: [ const Spacer(), const CustomContainer()]);
   }
 }

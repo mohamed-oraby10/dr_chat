@@ -10,14 +10,14 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50.h,
+      height: 55.h,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(14),
+            borderRadius: BorderRadiusGeometry.circular(16),
           ),
         ),
         child: Text(

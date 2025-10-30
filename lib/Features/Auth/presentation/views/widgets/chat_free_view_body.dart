@@ -24,7 +24,7 @@ class ChatFreeViewBody extends StatelessWidget {
             'Start chatting with Dr Chat now. You can ask me anything about therapy',
             style: Styles.textStyle18.copyWith(
               color: AppColors.primaryColor,
-              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 30.h),
@@ -35,7 +35,7 @@ class ChatFreeViewBody extends StatelessWidget {
             'Or login to keep your conversations',
             style: Styles.textStyle18.copyWith(
               color: AppColors.primaryColor,
-              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
             ),
           ),
           SizedBox(height: 20.h),
