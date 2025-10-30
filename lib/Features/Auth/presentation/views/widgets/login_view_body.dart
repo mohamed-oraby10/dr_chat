@@ -1,5 +1,7 @@
+import 'package:dr_chat/Features/Auth/presentation/views/widgets/forget_password_row.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/text_fields_section.dart';
 import 'package:dr_chat/core/utils/styles.dart';
+import 'package:dr_chat/core/widgets/main_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,16 +13,21 @@ class LoginViewBody extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Welcome back,", style: Styles.textStyle22),
           SizedBox(height: 30.h),
           const TextFieldsSection(),
+          SizedBox(height: 8.h),
+          const ForgetPasswordRow(),
+          SizedBox(height: 30.h),
+          MainButton(text: 'Sign In', onTap: () {}),
+          SizedBox(height: 20.h),
+
+         
         ],
       ),
     );
   }
 }
-
-
-

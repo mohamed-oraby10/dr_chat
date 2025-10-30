@@ -1,4 +1,3 @@
-
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,7 +12,7 @@ class TextFieldsSection extends StatelessWidget {
       children: [
         const CustomTextFormField(
           preIcon: Icon(
-            FontAwesomeIcons.envelope,
+            FontAwesomeIcons.solidEnvelope,
             color: Colors.black,
             size: 22,
           ),
