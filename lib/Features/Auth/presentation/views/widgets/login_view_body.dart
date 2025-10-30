@@ -11,20 +11,25 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Welcome back,", style: Styles.textStyle22),
-          SizedBox(height: 30.h),
-          const TextFieldsSection(),
-          SizedBox(height: 8.h),
-          const ForgetPasswordRow(),
-          const LoginSection(),
-          const ContinueWithGoogleSection(),
-        ],
+    return SingleChildScrollView(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Welcome back,", style: Styles.textStyle22),
+              SizedBox(height: 30.h),
+              const TextFieldsSection(),
+              SizedBox(height: 8.h),
+              const ForgetPasswordRow(),
+              const LoginSection(),
+              const ContinueWithGoogleSection(),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -10,19 +10,24 @@ class RegisterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Let\'s create your account', style: Styles.textStyle22),
-          SizedBox(height: 30.h),
-          const TextFieldsSection(),
-          SizedBox(height: 20.h),
-          const RegisterSection(),
-          const ContinueWithGoogleSection(),
-        ],
+    return SingleChildScrollView(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height * .86,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Let\'s create your account', style: Styles.textStyle22),
+              SizedBox(height: 30.h),
+              const TextFieldsSection(),
+              SizedBox(height: 20.h),
+              const RegisterSection(),
+              const ContinueWithGoogleSection(),
+            ],
+          ),
+        ),
       ),
     );
   }
