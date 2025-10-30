@@ -1,3 +1,4 @@
+import 'package:dr_chat/Features/Auth/presentation/views/widgets/continue_section.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/forget_password_row.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/login_section.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/text_fields_section.dart';
@@ -17,11 +18,12 @@ class LoginViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Welcome back,", style: Styles.textStyle22),
-          SizedBox(height: 25.h),
+          SizedBox(height: 30.h),
           const TextFieldsSection(),
           SizedBox(height: 8.h),
           const ForgetPasswordRow(),
           const LoginSection(),
+          const ContinueWithGoogleSection(),
         ],
       ),
     );

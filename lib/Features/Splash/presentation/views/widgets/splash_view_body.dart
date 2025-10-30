@@ -33,7 +33,7 @@ class SplashViewBody extends StatelessWidget {
             'Discover how Dr Chat can support your mental health journey with personalized,\n AI-driven therapy sessions',
             style: Styles.textStyle16,
           ),
-          SizedBox(height: 65.h),
+          SizedBox(height: 70.h),
           CustomButton(
             onTap: () => GoRouter.of(context).push(AppRouter.kOnboardingView),
           ),
