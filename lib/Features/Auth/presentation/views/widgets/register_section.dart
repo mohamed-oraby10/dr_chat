@@ -1,3 +1,4 @@
+import 'package:dr_chat/Features/Auth/presentation/views/login_successfully_view.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/widgets/policy_row.dart';
 import 'package:dr_chat/core/widgets/main_button.dart';
@@ -27,7 +28,21 @@ class RegisterSection extends StatelessWidget {
         SizedBox(height: 20.h),
         const RegisterPolicyRow(),
         SizedBox(height: 50.h),
-        MainButton(text: 'Create Account', onTap: () {}),
+        MainButton(
+          text: 'Create Account',
+          onTap: () {
+            Navigator.push((context), MaterialPageRoute(
+              builder: (context) {
+                return LoginSuccessfullyView(
+                  title: 'Your account successfully created!',
+                  desc:
+                      'Welcome to Your Virtual Psychology Assistant! Your account is created. Start your first session and take a step toward better mental health.',
+                );
+              },
+            ))
+           ;
+          },
+        ),
       ],
     );
   }

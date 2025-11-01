@@ -7,4 +7,5 @@ abstract class AssetsData {
   static const supportImage = 'assets/images/Medical prescription-amico.svg';
   static const botImage = 'assets/images/Chat bot-amico (1).svg';
   static const googleIcon = 'assets/images/LOGO.svg';
+  static const loginSuccessfully = 'assets/images/high five hands-bro.svg';
 }

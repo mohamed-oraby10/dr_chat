@@ -10,6 +10,8 @@ abstract class AppRouter {
   static const kLoginView = '/loginView';
   static const kChatFreeView = '/chatFreeView';
   static const kRegisterView = '/registerView';
+    static const kLoginSucceffullyView = '/loginSucceffullyView';
+
 
   static final router = GoRouter(
     routes: [

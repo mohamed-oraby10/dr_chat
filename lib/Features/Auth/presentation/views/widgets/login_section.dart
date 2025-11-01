@@ -13,7 +13,12 @@ class LoginSection extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 50.h),
-        MainButton(text: 'Sign In', onTap: () {}),
+        MainButton(
+          text: 'Sign In',
+          onTap: () {
+            GoRouter.of(context).push(AppRouter.kLoginSucceffullyView);
+          },
+        ),
         SizedBox(height: 25.h),
         SecondButton(
           text: 'Create Account',
