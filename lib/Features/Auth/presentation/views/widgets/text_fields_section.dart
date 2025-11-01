@@ -11,11 +11,7 @@ class TextFieldsSection extends StatelessWidget {
     return Column(
       children: [
         const CustomTextFormField(
-          preIcon: Icon(
-            FontAwesomeIcons.solidEnvelope,
-            color: Colors.black,
-            size: 22,
-          ),
+          preIcon: Icon(Icons.email_rounded, color: Colors.black, size: 26),
           hintText: 'E-Mail',
         ),
         SizedBox(height: 20.h),

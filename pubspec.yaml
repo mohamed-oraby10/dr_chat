@@ -66,9 +66,9 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins-SemiBold.ttf
-    - family: Parkinsans Regular
-      fonts:
-        - asset: assets/fonts/Parkinsans-Regular.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
+    # - family: Parkinsans Regular
+    #   fonts:
+    #     - asset: assets/fonts/Parkinsans-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

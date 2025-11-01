@@ -16,10 +16,7 @@ class CustomButton extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           'Let\'s Go',
-          style: Styles.textStyle18.copyWith(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+          style: Styles.textStyle18.copyWith(color: Colors.white),
         ),
       ),
     );

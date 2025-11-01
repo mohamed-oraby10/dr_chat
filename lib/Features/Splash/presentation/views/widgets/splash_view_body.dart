@@ -16,11 +16,9 @@ class SplashViewBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-
         children: [
           CustomClipImage(image: AssetsData.welcomeImage),
           SizedBox(height: 25.h),
-
           Text(
             textAlign: TextAlign.center,
             'Welcome to Dr Chat your personal therapist chatbot',
@@ -29,9 +27,8 @@ class SplashViewBody extends StatelessWidget {
           SizedBox(height: 20.h),
           Text(
             textAlign: TextAlign.center,
-
-            'Discover how Dr Chat can support your mental health journey with personalized,\n AI-driven therapy sessions',
-            style: Styles.textStyle16,
+            'Discover how Dr Chat can support your mental health journey with personalized, AI-driven \ntherapy sessions',
+            style: Styles.textStyle14.copyWith(color: Colors.black),
           ),
           SizedBox(height: 70.h),
           CustomButton(

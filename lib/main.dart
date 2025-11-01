@@ -18,7 +18,7 @@ class DrChat extends StatelessWidget {
         return MaterialApp.router(
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
-            fontFamily: 'Parkinsans Regular',
+            fontFamily: 'Poppins',
           ),
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,
