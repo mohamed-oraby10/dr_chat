@@ -16,7 +16,7 @@ class ChatFreeStack extends StatelessWidget {
       children: [
         const CustomContainer(),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+          padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 30.w),
           child: Column(
             children: [
               SizedBox(height: 25.h),

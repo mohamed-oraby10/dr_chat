@@ -8,4 +8,5 @@ abstract class AssetsData {
   static const botImage = 'assets/images/Chat bot-amico (1).svg';
   static const googleIcon = 'assets/images/LOGO.svg';
   static const loginSuccessfully = 'assets/images/high five hands-bro.svg';
+  static const sentMail = 'assets/images/Sent Message-amico.svg';
 }

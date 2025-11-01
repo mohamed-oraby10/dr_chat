@@ -2,6 +2,7 @@ import 'package:dr_chat/Features/Auth/presentation/views/chat_free_view.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/forget_password_view.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/login_successfully_view.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/login_view.dart';
+import 'package:dr_chat/Features/Auth/presentation/views/password_reset_email_view.dart';
 import 'package:dr_chat/Features/Auth/presentation/views/register_view.dart';
 import 'package:dr_chat/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:dr_chat/Features/Splash/presentation/views/splash_view.dart';
@@ -15,6 +16,7 @@ abstract class AppRouter {
   static const kLoginSucceffullyView = '/loginSucceffullyView';
   static const kForgetPasswordView = '/forgetPasswordView';
   static const kLoginSuccessfullyView = '/loginSuccessfullyView';
+  static const kPasswordResetEmailView = '/passwordResetEmailView';
 
   static final router = GoRouter(
     routes: [
@@ -39,6 +41,10 @@ abstract class AppRouter {
       GoRoute(
         path: kLoginSucceffullyView,
         builder: (context, state) => const LoginSuccessfullyView(),
+      ),
+        GoRoute(
+        path: kPasswordResetEmailView,
+        builder: (context, state) => const PasswordResetEmailView(),
       ),
     ],
   );
