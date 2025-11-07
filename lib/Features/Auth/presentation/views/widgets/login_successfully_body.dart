@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -45,7 +44,7 @@ class LoginSuccessfullyBody extends StatelessWidget {
             MainButton(
               text: 'Continue',
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kChatView);
+                GoRouter.of(context).push(AppRouter.kAccountView);
               },
             ),
           ],
