@@ -77,8 +77,8 @@ class AuthRepoImplementation implements AuthRepo {
   @override
   Future<Either<Failure, UserCredential>> loginWithGoogle() async {
     try {
-      final GoogleSignIn googleSignIn = GoogleSignIn();
-     await googleSignIn.signOut();
+      //   final GoogleSignIn googleSignIn = GoogleSignIn();
+      //  await googleSignIn.signOut();
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;

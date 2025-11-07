@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_dr_chat_application/Features/Auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:new_dr_chat_application/Features/Auth/presentation/cubits/login_with_google_cubit/login_with_google_cubit.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
@@ -16,16 +15,16 @@ class GoogleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<LoginWithGoogleCubit, LoginWithGoogleState>(
       listener: (context, state) {
-        if (state is AuthSuccess) {
+        if (state is LoginWithGoogleSuccess) {
           GoRouter.of(context).push(AppRouter.kLoginSucceffullyView);
-        } else if (state is AuthFailure) {
+        } else if (state is LoginWithGoogleFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {
-        final isLoading = state is AuthLoading;
+        final isLoading = state is LoginWithGoogleLoading;
         return Center(
           child: Container(
             height: 55.h,
@@ -33,7 +32,9 @@ class GoogleButton extends StatelessWidget {
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
             child: TextButton(
               onPressed: () {
-                BlocProvider.of<AuthCubit>(context).loginWithGoogle();
+                BlocProvider.of<LoginWithGoogleCubit>(
+                  context,
+                ).loginWithGoogle();
               },
               style: TextButton.styleFrom(side: BorderSide(width: .8.w)),
               child: isLoading

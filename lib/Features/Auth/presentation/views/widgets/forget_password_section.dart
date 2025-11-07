@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_dr_chat_application/Features/Auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:new_dr_chat_application/Features/Auth/presentation/cubits/reset_password_cubit/reset_password_cubit.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
@@ -21,16 +20,16 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
   String? email;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
-        if (state is AuthSuccess) {
+        if (state is ResetPasswordSuccess) {
           GoRouter.of(context).push(AppRouter.kPasswordResetEmailView);
-        } else if (state is AuthFailure) {
+        } else if (state is ResetPasswordFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {
-        final isLoading = state is AuthLoading;
+        final isLoading = state is ResetPasswordLoading;
         return Column(
           children: [
             CustomTextFormField(
@@ -44,7 +43,7 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
               text: 'Submit',
               onTap: () {
                 if (widget.formKey.currentState!.validate()) {
-                  BlocProvider.of<AuthCubit>(
+                  BlocProvider.of<ResetPasswordCubit>(
                     context,
                   ).resetPassword(email: email!);
                 }

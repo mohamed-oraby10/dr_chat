@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:new_dr_chat_application/Features/Auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:new_dr_chat_application/Features/Auth/presentation/cubits/login_cubit/login_cubit.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/forget_password_row.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/password_field.dart';
@@ -24,16 +23,16 @@ class _LoginSectionState extends State<LoginSection> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit, AuthState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is AuthSuccess) {
+        if (state is LoginSuccess) {
           GoRouter.of(context).push(AppRouter.kLoginSucceffullyView);
-        } else if (state is AuthFailure) {
+        } else if (state is LoginFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }
       },
       builder: (context, state) {
-        final isLoading = state is AuthLoading;
+        final isLoading = state is LoginLoading;
         return Column(
           children: [
             CustomTextFormField(
@@ -72,7 +71,7 @@ class _LoginSectionState extends State<LoginSection> {
               text: 'Sign In',
               onTap: () async {
                 if (widget.formKey.currentState!.validate()) {
-                  BlocProvider.of<AuthCubit>(
+                  BlocProvider.of<LoginCubit>(
                     context,
                   ).loginUser(email: email!, password: password!);
                 }
