@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "108543268639",
+    "project_id": "new-dr-chat-application",
+    "storage_bucket": "new-dr-chat-application.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108543268639:android:e43f95373006593c0d422a",
+        "android_client_info": {
+          "package_name": "com.example.new_dr_chat_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvm1U7DXMoJi5FfLb4WeRiuzzBA1zesuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

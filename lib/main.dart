@@ -1,11 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
+import 'package:new_dr_chat_application/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // setupServiceLocator();
-  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const DrChat());
 }
 
