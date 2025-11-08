@@ -5,7 +5,6 @@ import 'package:new_dr_chat_application/Features/History/presentation/views/widg
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/back_arrow_icon_button.dart';
-import 'package:new_dr_chat_application/core/widgets/buttom_navigation_bar.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_icon_button.dart';
 
 class HistoryView extends StatelessWidget {
@@ -14,7 +13,6 @@ class HistoryView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: ButtomNavigationBar(),
       appBar: AppBar(
         leading: BackArrowIconButton(),
         elevation: 0,

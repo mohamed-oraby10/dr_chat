@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/account_view.dart';
 import 'package:new_dr_chat_application/Features/Auth/data/models/login_successfully_data_model.dart';
@@ -12,6 +12,7 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/chat_vi
 import 'package:new_dr_chat_application/Features/History/presentation/views/history_view.dart';
 import 'package:new_dr_chat_application/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_view.dart';
+import 'package:new_dr_chat_application/core/widgets/buttom_navigation_bar.dart';
 
 abstract class AppRouter {
   static const kOnboardingView = '/onboardingView';
@@ -26,8 +27,28 @@ abstract class AppRouter {
   static const kAccountView = '/accountView';
 
   static final router = GoRouter(
+    initialLocation: '/',
     routes: [
       GoRoute(path: '/', builder: (context, state) => const SplashView()),
+      ShellRoute(
+        builder: (context, state, child) {
+          return Scaffold(
+            body: child,
+            bottomNavigationBar: const ButtomNavigationBar(),
+          );
+        },
+        routes: [
+        
+          GoRoute(
+            path: kHistoryView,
+            builder: (context, state) => const HistoryView(),
+          ),
+          GoRoute(
+            path: kAccountView,
+            builder: (context, state) => const AccountView(),
+          ),
+        ],
+      ),
       GoRoute(
         path: kOnboardingView,
         builder: (context, state) => const OnboardingView(),
@@ -60,15 +81,10 @@ abstract class AppRouter {
         path: kPasswordResetEmailView,
         builder: (context, state) => const PasswordResetEmailView(),
       ),
-      GoRoute(path: kChatView, builder: (context, state) => const ChatView()),
-      GoRoute(
-        path: kHistoryView,
-        builder: (context, state) => const HistoryView(),
-      ),
-      GoRoute(
-        path: kAccountView,
-        builder: (context, state) => const AccountView(),
-      ),
+        GoRoute(
+            path: kChatView,
+            builder: (context, state) => const ChatView(),
+          ),
     ],
   );
 }

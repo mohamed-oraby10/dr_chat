@@ -6,8 +6,6 @@ class ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: ChatViewBody()),
-    );
+    return const Scaffold(body: SafeArea(child: ChatViewBody()));
   }
 }
