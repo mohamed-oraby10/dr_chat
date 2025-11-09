@@ -9,6 +9,7 @@ class BotResponseCubit extends Cubit<BotResponseState> {
   BotResponseCubit(this.chatRepo) : super(BotResponseInitial());
   final ChatRepo chatRepo;
   Future<void> fetchBotResponse({required String userMessage}) async {
+    emit(BotResponseLoading());
     var result = await chatRepo.fetchBotResponse(userMessage: userMessage);
     result.fold(
       (failure) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/views/widgets/animated_text_response.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
-import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class RecievedChatBubble extends StatelessWidget {
   const RecievedChatBubble({super.key, required this.botRepaly});
@@ -26,13 +26,7 @@ class RecievedChatBubble extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.all(15.r),
-            child: Text(
-            botRepaly,
-              style: Styles.textStyle16.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
-              ),
-            ),
+            child: AnimatedTextResponse(botRepaly: botRepaly),
           ),
         ),
       ),

@@ -4,6 +4,7 @@ part of 'bot_response_cubit.dart';
 sealed class BotResponseState {}
 
 final class BotResponseInitial extends BotResponseState {}
+final class BotResponseLoading extends BotResponseState {}
 
 final class BotResponseFailure extends BotResponseState {
   final String errMessage;
