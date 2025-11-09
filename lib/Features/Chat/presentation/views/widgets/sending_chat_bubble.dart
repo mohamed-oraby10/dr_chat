@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class SendingChatBubble extends StatelessWidget {
-  const SendingChatBubble({super.key});
-
+  const SendingChatBubble({super.key, required this.message});
+  final String message;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +27,7 @@ class SendingChatBubble extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(15.r),
             child: Text(
-              "data",
+              message,
               style: Styles.textStyle16.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.normal,

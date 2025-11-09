@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class RecievedChatBubble extends StatelessWidget {
-  const RecievedChatBubble({super.key});
-
+  const RecievedChatBubble({super.key, required this.botRepaly});
+  final String botRepaly;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +27,7 @@ class RecievedChatBubble extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(15.r),
             child: Text(
-              "hi",
+            botRepaly,
               style: Styles.textStyle16.copyWith(
                 color: Colors.black,
                 fontWeight: FontWeight.normal,
