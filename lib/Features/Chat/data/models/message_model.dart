@@ -13,4 +13,8 @@ class MessageModel {
       // timeStamp: jsonData['timeStamp']
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {'message': message, 'isUser': isUser};
+  }
 }

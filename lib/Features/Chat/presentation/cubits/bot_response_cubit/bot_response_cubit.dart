@@ -8,15 +8,19 @@ part 'bot_response_state.dart';
 class BotResponseCubit extends Cubit<BotResponseState> {
   BotResponseCubit(this.chatRepo) : super(BotResponseInitial());
   final ChatRepo chatRepo;
-  Future<void> fetchBotResponse({required String userMessage}) async {
+  Future<void> fetchBotResponse({
+    required String userMessage,
+    required String chatId,
+  }) async {
     emit(BotResponseLoading());
     var result = await chatRepo.fetchBotResponse(userMessage: userMessage);
     result.fold(
       (failure) {
         emit(BotResponseFailure(errMessage: failure.errMessage));
       },
-      (message) {
+      (message) async {
         emit(BotResponseSuccess(messageModel: message));
+        await chatRepo.saveChats(messages: [message], chatId: chatId);
       },
     );
   }

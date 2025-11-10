@@ -16,13 +16,25 @@ class ChatModel {
     required this.chatId,
   });
 
-  factory ChatModel.fromJson(jsonData) {
+  factory ChatModel.fromJson(Map<String, dynamic> jsonData) {
     return ChatModel(
-      messages: jsonData['messageModel'],
+      messages: (jsonData['messages'] as List<dynamic>)
+          .map((e) => MessageModel.fromJson(e))
+          .toList(),
       userId: jsonData['userId'],
       timestamp: jsonData['timestamp'],
       firstMessage: jsonData['firstMessage'],
       chatId: jsonData['chatId'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'userId': userId,
+      'chatId': chatId,
+      'firstMessage': firstMessage,
+      'timestamp': timestamp,
+      'messages': messages.map((e) => e.toJson()).toList(),
+    };
   }
 }

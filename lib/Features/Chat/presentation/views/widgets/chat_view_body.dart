@@ -9,7 +9,8 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/widgets
 import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
 
 class ChatViewBody extends StatefulWidget {
-  const ChatViewBody({super.key});
+  final String chatId;
+  const ChatViewBody({super.key, required this.chatId});
 
   @override
   State<ChatViewBody> createState() => _ChatViewBodyState();
@@ -17,15 +18,6 @@ class ChatViewBody extends StatefulWidget {
 
 class _ChatViewBodyState extends State<ChatViewBody> {
   List<MessageModel> messages = [];
-
-  void sendMessage(String text) {
-    setState(() {
-      messages.add(MessageModel(message: text, isUser: true));
-    });
-    BlocProvider.of<BotResponseCubit>(
-      context,
-    ).fetchBotResponse(userMessage: text);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,17 +44,29 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                 }
               },
               builder: (context, state) {
-                return ChatsListView(messages: messages);
+                return ChatsListView(chatId: widget.chatId);
               },
             ),
           ),
           SendTextField(
-            onSubmitted: (value) {
-              sendMessage(value);
+            onSubmitted: (value) async {
+              await sendMessage(context, value);
             },
           ),
         ],
       ),
     );
+  }
+
+  Future<void> sendMessage(BuildContext context, String value) async {
+       await BlocProvider.of<BotResponseCubit>(
+      context,
+    ).chatRepo.saveChats(
+      messages: [MessageModel(isUser: true, message: value)],
+      chatId: widget.chatId,
+    );
+    BlocProvider.of<BotResponseCubit>(
+      context,
+    ).fetchBotResponse(userMessage: value, chatId: widget.chatId);
   }
 }

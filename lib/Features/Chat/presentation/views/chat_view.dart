@@ -7,13 +7,17 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/widgets
 import 'package:new_dr_chat_application/core/api_service.dart';
 
 class ChatView extends StatelessWidget {
-  const ChatView({super.key});
-
+  const ChatView({super.key, required this.chatId});
+  final String chatId;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => BotResponseCubit(ChatRepoImplementation(apiService: ApiService(dio: Dio()))),
-      child: const Scaffold(body: SafeArea(child: ChatViewBody())),
+      create: (context) => BotResponseCubit(
+        ChatRepoImplementation(apiService: ApiService(dio: Dio())),
+      ),
+      child: Scaffold(
+        body: SafeArea(child: ChatViewBody(chatId: chatId)),
+      ),
     );
   }
 }

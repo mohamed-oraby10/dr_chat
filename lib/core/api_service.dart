@@ -56,10 +56,20 @@ class ApiService {
     throw Exception('Failed to get bot response: ${response.data}');
   }
 
+  String cleanText(String text) {
+    return text
+        .replaceAll(r'\u2014', '—')
+        .replaceAll(r'\u2019', "'")
+        .replaceAll(r'\u201c', '"')
+        .replaceAll(r'\u201d', '"')
+        .replaceAll(r'\n', '\n')
+        .replaceAll(r'\\', '');
+  }
+
   Future<String> getBotReply({required String message}) async {
     final eventId = await sendRequest(message: message);
     await Future.delayed(Duration(seconds: 1));
     final botReply = await getResponseByEventId(eventId: eventId);
-    return botReply;
+    return cleanText(botReply);
   }
 }

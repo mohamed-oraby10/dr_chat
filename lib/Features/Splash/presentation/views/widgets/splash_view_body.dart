@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -25,15 +24,16 @@ class SplashViewBody extends StatelessWidget {
             'Welcome to Dr Chat your personal therapist chatbot',
             style: Styles.textStyle22,
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: 25.h),
           Text(
             textAlign: TextAlign.center,
             'Discover how Dr Chat can support your mental health journey with personalized, AI-driven \ntherapy sessions',
             style: Styles.textStyle14.copyWith(color: Colors.black),
           ),
-          SizedBox(height: 70.h),
+          SizedBox(height: 80.h),
           CustomButton(
-            onTap: () => GoRouter.of(context).push(AppRouter.kOnboardingView), text:  'Let\'s Go',
+            onTap: () => GoRouter.of(context).push(AppRouter.kOnboardingView),
+            text: 'Let\'s Go',
           ),
         ],
       ),
