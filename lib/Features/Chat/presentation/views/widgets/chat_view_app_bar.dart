@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,10 +12,12 @@ class ChatViewAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(bottom: 15.h),
-      decoration: BoxDecoration(border: Border(bottom: BorderSide(width: .5.w))),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: .5.w)),
+      ),
       child: Row(
         children: [
-          SvgPicture.asset(AssetsData.logoImage, height: 55.h, width: 55.w),
+          SvgPicture.asset(AssetsData.logoImage, height: 52.h, width: 52.w),
           SizedBox(width: 15.w),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
