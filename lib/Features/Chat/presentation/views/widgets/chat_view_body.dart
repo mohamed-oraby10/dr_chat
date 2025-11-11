@@ -18,6 +18,25 @@ class ChatViewBody extends StatefulWidget {
 
 class _ChatViewBodyState extends State<ChatViewBody> {
   List<MessageModel> messages = [];
+  ScrollController scrollController = ScrollController();
+
+  void scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 150), () {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(microseconds: 500),
+          curve: Curves.easeOut,
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,23 +58,29 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                       ),
                     );
                   });
+                  scrollToBottom();
                 } else if (state is BotResponseFailure) {
                   showCustomSnakBar(context, content: state.errMessage);
                 }
               },
               builder: (context, state) {
-                return ChatsListView(chatId: widget.chatId);
+                return ChatsListView(
+                  chatId: widget.chatId,
+                  controller: scrollController,
+                );
               },
             ),
           ),
           SendTextField(
             onSubmitted: (value) async {
-              BlocProvider.of<BotResponseCubit>(context).sendMessage(context, value,widget.chatId);
+              await BlocProvider.of<BotResponseCubit>(
+                context,
+              ).sendMessage(context, value, widget.chatId);
+              scrollToBottom();
             },
           ),
         ],
       ),
     );
   }
-
 }

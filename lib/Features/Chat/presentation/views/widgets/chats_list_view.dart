@@ -7,9 +7,9 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/widgets
 import 'package:new_dr_chat_application/core/utils/constants.dart';
 
 class ChatsListView extends StatelessWidget {
-  const ChatsListView({super.key, required this.chatId});
+  const ChatsListView({super.key, required this.chatId, required this.controller});
   final String chatId;
-
+final ScrollController controller;
   @override
   Widget build(BuildContext context) {
     final chatDoc = FirebaseFirestore.instance.collection(kChats).doc(chatId);
@@ -28,6 +28,7 @@ class ChatsListView extends StatelessWidget {
         final messages = chat.messages;
 
         return ListView.builder(
+          controller: controller ,
           physics: const BouncingScrollPhysics(),
           itemCount: messages.length,
           itemBuilder: (context, index) {
