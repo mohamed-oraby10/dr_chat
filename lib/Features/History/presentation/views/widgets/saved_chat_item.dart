@@ -1,12 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:new_dr_chat_application/Features/Chat/data/models/chat_model.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class SavedChatItem extends StatelessWidget {
-  const SavedChatItem({super.key});
-
+  const SavedChatItem({super.key, required this.chat});
+  final ChatModel chat;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,9 +16,7 @@ class SavedChatItem extends StatelessWidget {
         width: double.infinity,
         height: 110.h,
         padding: EdgeInsets.all(15.r),
-        decoration: BoxDecoration(
-          color: AppColors.thirdColor,
-        ),
+        decoration: BoxDecoration(color: AppColors.thirdColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -27,7 +26,7 @@ class SavedChatItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'data data data data  ',
+                    chat.firstMessage,
                     style: Styles.textStyle18.copyWith(
                       fontWeight: FontWeight.w600,
                     ),
@@ -35,7 +34,16 @@ class SavedChatItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 8.h),
-                  Text('08 August 2024 | 03:23 AM', style: Styles.textStyle14),
+                  Expanded(
+                    child: Text(
+                      DateFormat(
+                        'd MMMM yyyy | hh:mm a',
+                      ).format(chat.timestamp.toDate()),
+                      style: Styles.textStyle14,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
                 ],
               ),
             ),

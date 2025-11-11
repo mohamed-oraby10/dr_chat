@@ -22,8 +22,8 @@ class ChatsListView extends StatelessWidget {
             snapshot.data!.data() == null) {
           return Center(
             child: Text(
-              'Hello there, I\'m Dr Chat - Small talks can lead to big healing. I\'m here to listen.',
-              style: Styles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+              'Small talks can lead to big healing.\nI\'m here to listen.',
+              style: Styles.textStyle18.copyWith(fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
           );
