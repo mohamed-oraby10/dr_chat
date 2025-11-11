@@ -53,13 +53,14 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
         selectedItemColor: AppColors.primaryColor,
         selectedLabelStyle: Styles.textStyle13,
         unselectedLabelStyle: Styles.textStyle13,
+        iconSize: 21.sp,
         items: [
           BottomNavigationBarItem(
             icon: BottomBarItem(
               icon: SvgPicture.asset(
                 AssetsData.chatIcon,
-                height: 27.h,
-                width: 27.w,
+                height: 25.h,
+                width: 25.w,
               ),
             ),
             label: 'Chat',
