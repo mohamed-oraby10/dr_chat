@@ -4,12 +4,26 @@ import 'package:flutter_svg/svg.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 
-class SendTextField extends StatelessWidget {
+class SendTextField extends StatefulWidget {
   const SendTextField({super.key, required this.onSubmitted});
   final Function(String) onSubmitted;
+
+  @override
+  State<SendTextField> createState() => _SendTextFieldState();
+}
+
+class _SendTextFieldState extends State<SendTextField> {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
+    void handleSend() {
+      final text = controller.text.trim();
+      if (text.isNotEmpty) {
+        widget.onSubmitted(text);
+        controller.clear();
+      }
+    }
+
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 6.w),
       child: Row(
@@ -21,12 +35,7 @@ class SendTextField extends StatelessWidget {
               autofocus: false,
               textInputAction: TextInputAction.send,
               controller: controller,
-              onSubmitted: (value) {
-                if (value.trim().isNotEmpty) {
-                  onSubmitted(value);
-                  controller.clear();
-                }
-              },
+              onSubmitted: (_) => handleSend(),
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.r),
@@ -46,7 +55,14 @@ class SendTextField extends StatelessWidget {
               ),
             ),
           ),
-          SvgPicture.asset(AssetsData.sendIcon, height: 50.h, width: 50.w),
+          GestureDetector(
+            onTap: () => handleSend(),
+            child: SvgPicture.asset(
+              AssetsData.sendIcon,
+              height: 50.h,
+              width: 50.w,
+            ),
+          ),
         ],
       ),
     );

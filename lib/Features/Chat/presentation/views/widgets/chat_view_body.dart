@@ -50,7 +50,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
           ),
           SendTextField(
             onSubmitted: (value) async {
-              await sendMessage(context, value);
+              BlocProvider.of<BotResponseCubit>(context).sendMessage(context, value,widget.chatId);
             },
           ),
         ],
@@ -58,15 +58,4 @@ class _ChatViewBodyState extends State<ChatViewBody> {
     );
   }
 
-  Future<void> sendMessage(BuildContext context, String value) async {
-       await BlocProvider.of<BotResponseCubit>(
-      context,
-    ).chatRepo.saveChats(
-      messages: [MessageModel(isUser: true, message: value)],
-      chatId: widget.chatId,
-    );
-    BlocProvider.of<BotResponseCubit>(
-      context,
-    ).fetchBotResponse(userMessage: value, chatId: widget.chatId);
-  }
 }

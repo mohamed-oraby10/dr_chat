@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:new_dr_chat_application/Features/Chat/data/models/message_model.dart';
 import 'package:new_dr_chat_application/Features/Chat/data/repos/chat_repo.dart';
@@ -23,5 +24,13 @@ class BotResponseCubit extends Cubit<BotResponseState> {
         await chatRepo.saveChats(messages: [message], chatId: chatId);
       },
     );
+  }
+
+  Future<void> sendMessage(context, String value, String chatId) async {
+    await chatRepo.saveChats(
+      messages: [MessageModel(isUser: true, message: value)],
+      chatId: chatId,
+    );
+    fetchBotResponse(userMessage: value, chatId: chatId);
   }
 }
