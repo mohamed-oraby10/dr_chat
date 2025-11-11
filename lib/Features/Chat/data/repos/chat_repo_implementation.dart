@@ -55,4 +55,18 @@ class ChatRepoImplementation implements ChatRepo {
     await chatRef.set(chatModel.toJson(), SetOptions(merge: true));
   }
 
+  @override
+  Future<Either<Failure, void>> removeAllChats() async {
+    final collection = FirebaseFirestore.instance.collection(kChats);
+    final snapshots = await collection.get();
+    final batch = FirebaseFirestore.instance.batch();
+    try {
+      for (var doc in snapshots.docs) {
+        batch.delete(doc.reference);
+      }
+      return Right(await batch.commit());
+    } catch (e) {
+      return Left(ServerFailure(errMessage: e.toString()));
+    }
+  }
 }

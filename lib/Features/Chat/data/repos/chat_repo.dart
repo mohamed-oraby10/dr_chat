@@ -10,4 +10,5 @@ abstract class ChatRepo {
     required List<MessageModel> messages,
     required String chatId,
   });
+  Future<Either<Failure, void>> removeAllChats();
 }
