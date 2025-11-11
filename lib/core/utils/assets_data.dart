@@ -15,6 +15,6 @@ abstract class AssetsData {
   static const searchIcon = 'assets/images/search.svg';
   static const trashIcon = 'assets/images/trash.svg';
   static const clockIcon = 'assets/images/clock.svg';
-    static const usernameIcon = 'assets/images/user.svg';
-
+  static const usernameIcon = 'assets/images/user.svg';
+  static const chatSplashIcon = 'assets/images/Logo (6).svg';
 }

@@ -13,7 +13,7 @@ class ChatSplash extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(AssetsData.logoImage, height: 65.h),
+        SvgPicture.asset(AssetsData.chatSplashIcon, height: 65.h),
         SizedBox(height: 12.h),
         Text(
           'Hi, I\'m Dr Chat',
