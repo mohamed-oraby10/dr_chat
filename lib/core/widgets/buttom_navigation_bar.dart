@@ -54,6 +54,7 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
         selectedLabelStyle: Styles.textStyle13,
         unselectedLabelStyle: Styles.textStyle13,
         iconSize: 21.sp,
+        elevation: 0,
         items: [
           BottomNavigationBarItem(
             icon: BottomBarItem(
