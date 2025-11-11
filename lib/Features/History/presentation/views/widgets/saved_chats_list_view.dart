@@ -22,8 +22,14 @@ class SavedChatsListView extends StatelessWidget {
         if (snapshots.connectionState == ConnectionState.waiting) {
           return const CustomCircularIndicator();
         }
-        if (!snapshots.hasData) {
-          return Center(child: Text('No chats yet', style: Styles.textStyle16));
+        final docs = snapshots.data?.docs ?? [];
+        if (docs.isEmpty) {
+          return Center(
+            child: Text(
+              'No chats yet',
+              style: Styles.textStyle16,
+            ),
+          );
         }
         List<ChatModel> chats = [];
         if (snapshots.hasData) {

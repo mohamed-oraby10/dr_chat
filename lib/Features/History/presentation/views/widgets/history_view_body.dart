@@ -10,10 +10,9 @@ class HistoryViewBody extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 25.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(child: SavedChatsListView()),
-        ],
+        children: [Expanded(child: SavedChatsListView())],
       ),
     );
   }
