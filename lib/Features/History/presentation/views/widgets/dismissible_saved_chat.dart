@@ -3,12 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/Features/Chat/data/models/chat_model.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/saved_chat_item.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
-import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_icon_button.dart';
 
 class DismissibleSavedChat extends StatelessWidget {
-  const DismissibleSavedChat({super.key, required this.chat});
+  const DismissibleSavedChat({super.key, required this.chat, this.onDelete});
   final ChatModel chat;
+  final void Function(DismissDirection)? onDelete;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -35,9 +35,7 @@ class DismissibleSavedChat extends StatelessWidget {
           ),
         ),
         direction: DismissDirection.endToStart,
-        onDismissed: (direction) {
-          showCustomSnakBar(context, content: 'Chat deleted successfully');
-        },
+        onDismissed: onDelete,
         child: SavedChatItem(chat: chat),
       ),
     );
