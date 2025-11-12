@@ -7,7 +7,7 @@ import 'package:new_dr_chat_application/core/widgets/back_arrow_icon_button.dart
 
 class HistoryViewAppBar extends StatefulWidget {
   const HistoryViewAppBar({super.key, this.onChanged});
-final void Function(String)? onChanged;
+  final void Function(String)? onChanged;
   @override
   State<HistoryViewAppBar> createState() => _HistoryViewAppBarState();
 }
@@ -23,17 +23,30 @@ class _HistoryViewAppBarState extends State<HistoryViewAppBar> {
           BackArrowIconButton(),
           SizedBox(width: 10.w),
           isSearch
-              ? SearchTextFeild(onChanged: widget.onChanged ,)
-              : Text('History', style: Styles.textStyle22),
-          Spacer(),
-          AppBarActions(
-            isSearch: isSearch,
-            onPress: () {
-              setState(() {
-                isSearch = !isSearch;
-              });
-            },
-          ),
+              ? SearchTextFeild(
+                  onChanged: widget.onChanged,
+                  onPress: () {
+                    setState(() {
+                      isSearch = !isSearch;
+                    });
+                  },
+                )
+              : Expanded(
+                  child: Row(
+                    children: [
+                      Text('History', style: Styles.textStyle22),
+                      Spacer(),
+                      AppBarActions(
+                        isSearch: isSearch,
+                        onPress: () {
+                          setState(() {
+                            isSearch = !isSearch;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
         ],
       ),
     );
