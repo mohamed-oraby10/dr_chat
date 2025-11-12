@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/chats_searched_results_cubit/fetch_chats_searched_results_cubit.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/app_bar_actions.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/search_text_feild.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
@@ -29,6 +31,11 @@ class _HistoryViewAppBarState extends State<HistoryViewAppBar> {
                     setState(() {
                       isSearch = !isSearch;
                     });
+                    if (!isSearch) {
+                      context
+                          .read<FetchChatsSearchedResultsCubit>()
+                          .fetchChatsSearchedResults(query: '');
+                    }
                   },
                 )
               : Expanded(

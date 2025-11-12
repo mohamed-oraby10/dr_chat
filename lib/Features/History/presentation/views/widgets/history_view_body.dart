@@ -51,9 +51,8 @@ class HistoryViewBody extends StatelessWidget {
                     child: Text(state.errMessage, style: Styles.textStyle16),
                   ),
                 );
-              } else {
-                return Expanded(child: SavedChatsListView());
               }
+              return Expanded(child: SavedChatsListView());
             },
           ),
         ],
