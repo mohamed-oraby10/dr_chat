@@ -10,7 +10,6 @@ import 'package:new_dr_chat_application/core/widgets/custom_circular_indicator.d
 
 class SavedChatsListView extends StatelessWidget {
   const SavedChatsListView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -24,12 +23,7 @@ class SavedChatsListView extends StatelessWidget {
         }
         final docs = snapshots.data?.docs ?? [];
         if (docs.isEmpty) {
-          return Center(
-            child: Text(
-              'No chats yet',
-              style: Styles.textStyle16,
-            ),
-          );
+          return Center(child: Text('No chats yet', style: Styles.textStyle16));
         }
         List<ChatModel> chats = [];
         if (snapshots.hasData) {

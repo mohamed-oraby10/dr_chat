@@ -12,13 +12,11 @@ class FetchChatsSearchedResultsCubit
   final ChatRepo chatRepo;
 
   Future<void> fetchChatsSearchedResults({
-    required String chatId,
     required String query,
   }) async {
     emit(FetchChatsSearchedResultsLoading());
     var result = await chatRepo.fetchChatsSearchedResults(
       query: query,
-      chatId: chatId,
     );
     result.fold(
       (failure) {

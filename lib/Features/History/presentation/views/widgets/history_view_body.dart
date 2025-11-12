@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/chats_searched_results_cubit/fetch_chats_searched_results_cubit.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/history_view_app_bar.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/saved_chats_list_view.dart';
+import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/search_list_view.dart';
+import 'package:new_dr_chat_application/core/utils/styles.dart';
+import 'package:new_dr_chat_application/core/widgets/custom_circular_indicator.dart';
 
 class HistoryViewBody extends StatelessWidget {
   const HistoryViewBody({super.key});
@@ -14,8 +19,43 @@ class HistoryViewBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          HistoryViewAppBar(),
-          Expanded(child: SavedChatsListView()),
+          HistoryViewAppBar(
+            onChanged: (value) {
+              BlocProvider.of<FetchChatsSearchedResultsCubit>(
+                context,
+              ).fetchChatsSearchedResults(query: value);
+            },
+          ),
+          BlocBuilder<
+            FetchChatsSearchedResultsCubit,
+            FetchChatsSearchedResultsState
+          >(
+            builder: (context, state) {
+              if (state is FetchChatsSearchedResultsLoading) {
+                return Expanded(child: const CustomCircularIndicator());
+              } else if (state is FetchChatsSearchedResultsSuccess) {
+                if (state.chats.isEmpty) {
+                  return Expanded(
+                    child: Center(
+                      child: Text(
+                        'Not found results.',
+                        style: Styles.textStyle16,
+                      ),
+                    ),
+                  );
+                }
+                return SearchListView(chats: state.chats);
+              } else if (state is FetchChatsSearchedResultsFailure) {
+                return Expanded(
+                  child: Center(
+                    child: Text(state.errMessage, style: Styles.textStyle16),
+                  ),
+                );
+              } else {
+                return Expanded(child: SavedChatsListView());
+              }
+            },
+          ),
         ],
       ),
     );

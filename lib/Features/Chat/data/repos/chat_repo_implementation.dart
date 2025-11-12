@@ -73,19 +73,18 @@ class ChatRepoImplementation implements ChatRepo {
   @override
   Future<Either<Failure, List<ChatModel>>> fetchChatsSearchedResults({
     required String query,
-    required String chatId,
   }) async {
     CollectionReference collection = FirebaseFirestore.instance.collection(
       kChats,
     );
-    final snapshots = await collection.get();
-    List<ChatModel> chats = [];
     try {
+      final snapshots = await collection.get();
+      List<ChatModel> chats = [];
       for (var doc in snapshots.docs) {
         chats.add(ChatModel.fromJson(doc.data() as Map<String, dynamic>));
       }
       final chatsResult = chats
-          .where((c) => c.firstMessage.contains(query))
+          .where((c) => c.firstMessage.toLowerCase().contains(query.toLowerCase()))
           .toList();
       return Right(chatsResult);
     } catch (e) {

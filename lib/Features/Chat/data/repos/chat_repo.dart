@@ -12,5 +12,5 @@ abstract class ChatRepo {
     required String chatId,
   });
   Future<Either<Failure, void>> removeAllChats();
-  Future<Either<Failure, List<ChatModel>>> fetchChatsSearchedResults({required String query,required String chatId});
+  Future<Either<Failure, List<ChatModel>>> fetchChatsSearchedResults({required String query});
 }
