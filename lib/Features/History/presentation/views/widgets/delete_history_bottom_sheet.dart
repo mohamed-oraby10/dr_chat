@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +6,7 @@ import 'package:new_dr_chat_application/Features/Chat/data/repos/chat_repo_imple
 import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/remove_all_chats/remove_all_chats_cubit.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/cancel_button.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/widgets/custom_button.dart';
-import 'package:new_dr_chat_application/core/api_service.dart';
+import 'package:new_dr_chat_application/core/di/service_locator.dart';
 import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
@@ -18,7 +17,7 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RemoveAllChatsCubit(
-        ChatRepoImplementation(apiService: ApiService(dio: Dio())),
+        getIt.get<ChatRepoImplementation>(),
       ),
       child: BlocConsumer<RemoveAllChatsCubit, RemoveAllChatsState>(
         listener: (context, state) {

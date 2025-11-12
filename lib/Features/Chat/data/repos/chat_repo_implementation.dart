@@ -66,7 +66,7 @@ class ChatRepoImplementation implements ChatRepo {
       }
       return Right(await batch.commit());
     } catch (e) {
-      return Left(ServerFailure(errMessage: e.toString()));
+      return Left(ServerFailure(errMessage: 'There is an error'));
     }
   }
 }
