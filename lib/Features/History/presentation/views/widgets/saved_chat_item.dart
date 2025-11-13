@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -44,6 +45,7 @@ class SavedChatItem extends StatelessWidget {
                       child: Text(
                         DateFormat(
                           'd MMMM yyyy | hh:mm a',
+                          context.locale.toLanguageTag(),
                         ).format(chat.timestamp.toDate()),
                         style: Styles.textStyle14,
                         maxLines: 1,

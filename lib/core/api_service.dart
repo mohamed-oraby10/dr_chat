@@ -63,6 +63,7 @@ class ApiService {
         .replaceAll(r'\u2019', "'")
         .replaceAll(r'\u201c', '"')
         .replaceAll(r'\u201d', '"')
+        .replaceAll(r'9152987821', '122')
         .replaceAll(r'\n', '\n')
         .replaceAll(r'\\', '');
   }

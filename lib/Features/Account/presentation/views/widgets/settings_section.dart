@@ -44,7 +44,7 @@ class _SettingsSectionState extends State<SettingsSection> {
                     } else if (value == 'العربية') {
                       context.setLocale(Locale('ar'));
                     }
-                    GoRouter.of(context).pop();
+                    GoRouter.of(context).pop(value);
                   },
                 );
               },

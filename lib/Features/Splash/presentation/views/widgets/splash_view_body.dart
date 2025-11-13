@@ -27,8 +27,11 @@ class SplashViewBody extends StatelessWidget {
           SizedBox(height: 25.h),
           Text(
             textAlign: TextAlign.center,
-            'Discover how Dr Chat can support your mental health \njourney with personalized, AI-driven therapy sessions',
-            style: Styles.textStyle14.copyWith(color: Colors.black),
+            'Discover how Dr Chat can support your mental health journey with personalized, AI-driven \ntherapy sessions',
+            style: Styles.textStyle14.copyWith(
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           SizedBox(height: 80.h),
           CustomButton(
