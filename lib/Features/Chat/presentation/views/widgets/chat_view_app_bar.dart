@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
+import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
@@ -31,7 +33,10 @@ class ChatViewAppBar extends StatelessWidget {
           Spacer(),
           IconButton(
             onPressed: () {
-              GoRouter.of(context).push(AppRouter.kChatView);
+              GoRouter.of(context).push(
+                AppRouter.kChatView,
+                extra: FirebaseFirestore.instance.collection(kChats).doc().id,
+              );
             },
             icon: Icon(FontAwesomeIcons.penToSquare, size: 26.sp),
           ),

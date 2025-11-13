@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/account_view.dart';
@@ -13,7 +12,6 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/chat_vi
 import 'package:new_dr_chat_application/Features/History/presentation/views/history_view.dart';
 import 'package:new_dr_chat_application/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_view.dart';
-import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/widgets/buttom_navigation_bar.dart';
 
 abstract class AppRouter {
@@ -85,11 +83,8 @@ abstract class AppRouter {
       GoRoute(
         path: kChatView,
         builder: (context, state) {
-          final newChatId = FirebaseFirestore.instance
-              .collection(kChats)
-              .doc()
-              .id;
-          return ChatView(chatId: newChatId);
+          final chatId = state.extra as String;
+          return ChatView(chatId: chatId);
         },
       ),
     ],
