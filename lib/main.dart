@@ -7,7 +7,7 @@ import 'package:new_dr_chat_application/core/di/service_locator.dart';
 import 'package:new_dr_chat_application/core/observers/bloc_observer.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/firebase_options.dart';
-import 'dart:ui' as ui;
+// import 'dart:ui' as ui;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

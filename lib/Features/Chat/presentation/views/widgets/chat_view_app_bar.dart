@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,8 +27,8 @@ class ChatViewAppBar extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('You are chatting with', style: Styles.textStyle14),
-              Text('Dr Chat', style: Styles.textStyle22),
+              Text('chat.app_bar_title'.tr(), style: Styles.textStyle14),
+              Text('chat.bot_name'.tr(), style: Styles.textStyle22),
             ],
           ),
           Spacer(),

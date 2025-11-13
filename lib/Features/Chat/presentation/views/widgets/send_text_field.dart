@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -48,7 +49,7 @@ class _SendTextFieldState extends State<SendTextField> {
                   vertical: 15.h,
                   horizontal: 20.w,
                 ),
-                hintText: 'Type your message',
+                hintText: 'chat.type_message_hint'.tr(),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.r),
                 ),

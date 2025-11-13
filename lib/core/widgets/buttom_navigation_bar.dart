@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
+import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/bottom_bar_item.dart';
@@ -45,7 +47,10 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
       child: BottomNavigationBar(
         onTap: (value) {
           if (value != currentIndex) {
-            GoRouter.of(context).go(routes[value]);
+            GoRouter.of(context).go(
+              routes[value],
+              extra: FirebaseFirestore.instance.collection(kChats).doc().id,
+            );
             setState(() => currentIndex = value);
           }
         },

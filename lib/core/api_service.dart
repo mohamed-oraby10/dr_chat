@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ApiService {
   final Dio dio;
@@ -41,7 +42,7 @@ class ApiService {
         final match = regex.firstMatch(dataLine);
         if (match != null) {
           final reply = match.group(1);
-          return reply ?? 'No reply found';
+          return reply ?? 'chat.no_reply_found'.tr();
         }
       }
       throw Exception('No valid "data" line found in response');
