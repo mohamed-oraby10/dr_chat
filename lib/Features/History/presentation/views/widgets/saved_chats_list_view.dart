@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:new_dr_chat_application/Features/Chat/data/models/chat_model.dart';
@@ -23,7 +24,7 @@ class SavedChatsListView extends StatelessWidget {
         }
         final docs = snapshots.data?.docs ?? [];
         if (docs.isEmpty) {
-          return Center(child: Text('No chats yet', style: Styles.textStyle16));
+          return Center(child: Text('history.no_chats'.tr(), style: Styles.textStyle16));
         }
         List<ChatModel> chats = [];
         if (snapshots.hasData) {
@@ -48,7 +49,7 @@ class SavedChatsListView extends StatelessWidget {
                     .delete();
                 showCustomSnakBar(
                   context,
-                  content: 'Chat deleted successfully',
+                  content: 'history.chat_deleted'.tr(),
                 );
               },
             );

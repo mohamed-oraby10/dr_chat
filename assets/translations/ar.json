@@ -1,35 +1,40 @@
 {
-  "account": {
-    "title": "الحساب",
-    "personal_info": "المعلومات الشخصية",
-    "settings": "الإعدادات",
-    "language": "اللغة",
-    "appearance": "المظهر",
-    "help_center": "مركز المساعدة",
-    "logout": "تسجيل الخروج",
-    "language_english": "English",
-    "language_arabic": "العربية",
-    "theme_light": "فاتح",
-    "theme_dark": "داكن"
-  },
-  "chat": {
-    "app_bar_title": "أنت تتحدث مع",
-    "bot_name": "دكتور شات",
-    "welcome_title": "مرحباً، أنا دكتور شات",
-    "welcome_subtitle": "المحادثات الصغيرة يمكن أن تؤدي إلى شفاء كبير.",
-    "type_message_hint": "اكتب رسالتك",
-    "no_reply_found": "لم يتم العثور على رد"
-  },
-  "history": {
-    "title": "السجل",
-    "search_hint": "ابحث هنا",
-    "no_chats": "لا توجد محادثات بعد",
-    "not_found": "لم يتم العثور على نتائج.",
-    "chat_deleted": "تم حذف المحادثة بنجاح",
-    "clear_all_title": "مسح جميع السجلات",
-    "clear_all_message": "هل أنت متأكد أنك تريد مسح جميع السجلات؟",
-    "clear_all_button": "مسح جميع السجلات",
-    "cancel_button": "إلغاء",
-    "all_chats_deleted": "تم حذف جميع المحادثات بنجاح"
-  }
+    "account": {
+        "title": "الحساب",
+        "personal_info": "المعلومات الشخصية",
+        "settings": "الإعدادات",
+        "language": "اللغة",
+        "appearance": "المظهر",
+        "help_center": "مركز المساعدة",
+        "logout": "تسجيل الخروج",
+        "language_english": "English",
+        "language_arabic": "العربية",
+        "theme_light": "فاتح",
+        "theme_dark": "داكن"
+    },
+    "chat": {
+        "app_bar_title": "أنت تتحدث مع",
+        "bot_name": "دكتور شات",
+        "welcome_title": "مرحباً، أنا دكتور شات",
+        "welcome_subtitle": "المحادثات الصغيرة يمكن أن تؤدي إلى شفاء كبير.",
+        "type_message_hint": "اكتب رسالتك",
+        "no_reply_found": "لم يتم العثور على رد"
+    },
+    "history": {
+        "title": "السجل",
+        "search_hint": "ابحث هنا",
+        "no_chats": "لا توجد محادثات بعد",
+        "not_found": "لم يتم العثور على نتائج.",
+        "chat_deleted": "تم حذف المحادثة بنجاح",
+        "clear_all_title": "مسح جميع السجلات",
+        "clear_all_message": "هل أنت متأكد أنك تريد مسح جميع السجلات؟",
+        "clear_all_button": "مسح جميع السجلات",
+        "cancel_button": "إلغاء",
+        "all_chats_deleted": "تم حذف جميع المحادثات بنجاح"
+    },
+    "bottom": {
+        "history_bottom": "السجل",
+        "chat_bottom": "المحادثات",
+        "account_bottom": "الحساب"
+    }
 }

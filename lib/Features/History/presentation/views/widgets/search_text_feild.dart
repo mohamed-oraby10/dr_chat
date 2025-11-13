@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +14,7 @@ class SearchTextFeild extends StatelessWidget {
       child: TextField(
         onChanged: onChanged,
         decoration: InputDecoration(
-          hintText: 'Search here',
+          hintText: 'history.search_hint'.tr(),
           suffixIcon: IconButton(
             onPressed: onPress,
             icon: Icon(FontAwesomeIcons.xmark),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,7 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
             GoRouter.of(context).pop();
             showCustomSnakBar(
               context,
-              content: 'All Chats deleted successfully',
+              content: 'history.all_chats_deleted'.tr(),
             );
           }
         },
@@ -39,10 +40,10 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Clear All History', style: Styles.textStyle22),
+                Text('history.clear_all_title'.tr(), style: Styles.textStyle22),
                 SizedBox(height: 30.h),
                 Text(
-                  'Are you sure you want to clear all history?',
+                  'history.clear_all_message'.tr(),
                   style: Styles.textStyle16,
                 ),
                 SizedBox(height: 30.h),
@@ -52,7 +53,7 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
                     CancelButton(),
                     SizedBox(width: 16.w),
                     CustomButton(
-                      text: 'Clear All History',
+                      text: 'history.clear_all_button'.tr(),
                       onTap: () {
                         BlocProvider.of<RemoveAllChatsCubit>(
                           context,

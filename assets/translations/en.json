@@ -1,35 +1,40 @@
 {
-  "account": {
-    "title": "Account",
-    "personal_info": "Personal info",
-    "settings": "Settings",
-    "language": "Language",
-    "appearance": "Appearance",
-    "help_center": "Help Center",
-    "logout": "Logout",
-    "language_english": "English",
-    "language_arabic": "العربية",
-    "theme_light": "Light",
-    "theme_dark": "Dark"
-  },
-  "chat": {
-    "app_bar_title": "You are chatting with",
-    "bot_name": "Dr Chat",
-    "welcome_title": "Hi, I'm Dr Chat",
-    "welcome_subtitle": "Small talks can lead to big healing.",
-    "type_message_hint": "Type your message",
-    "no_reply_found": "No reply found"
-  },
-  "history": {
-    "title": "History",
-    "search_hint": "Search here",
-    "no_chats": "No chats yet",
-    "not_found": "Not found results.",
-    "chat_deleted": "Chat deleted successfully",
-    "clear_all_title": "Clear All History",
-    "clear_all_message": "Are you sure you want to clear all history?",
-    "clear_all_button": "Clear All History",
-    "cancel_button": "Cancel",
-    "all_chats_deleted": "All Chats deleted successfully"
-  }
+    "account": {
+        "title": "Account",
+        "personal_info": "Personal info",
+        "settings": "Settings",
+        "language": "Language",
+        "appearance": "Appearance",
+        "help_center": "Help Center",
+        "logout": "Logout",
+        "language_english": "English",
+        "language_arabic": "العربية",
+        "theme_light": "Light",
+        "theme_dark": "Dark"
+    },
+    "chat": {
+        "app_bar_title": "You are chatting with",
+        "bot_name": "Dr Chat",
+        "welcome_title": "Hi, I'm Dr Chat",
+        "welcome_subtitle": "Small talks can lead to big healing.",
+        "type_message_hint": "Type your message",
+        "no_reply_found": "No reply found"
+    },
+    "history": {
+        "title": "History",
+        "search_hint": "Search here",
+        "no_chats": "No chats yet",
+        "not_found": "Not found results.",
+        "chat_deleted": "Chat deleted successfully",
+        "clear_all_title": "Clear All History",
+        "clear_all_message": "Are you sure you want to clear all history?",
+        "clear_all_button": "Clear All History",
+        "cancel_button": "Cancel",
+        "all_chats_deleted": "All Chats deleted successfully"
+    },
+    "bottom": {
+        "history_bottom": "History",
+        "chat_bottom": "Chat",
+        "account_bottom": "Account"
+    }
 }

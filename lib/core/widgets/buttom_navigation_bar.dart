@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -64,7 +65,7 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
                 width: 25.w,
               ),
             ),
-            label: 'Chat',
+            label: 'bottom.chat_bottom'.tr(),
           ),
           BottomNavigationBarItem(
             icon: BottomBarItem(
@@ -74,7 +75,7 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
                     : FontAwesomeIcons.clock,
               ),
             ),
-            label: 'History',
+            label: 'bottom.history_bottom'.tr(),
           ),
           BottomNavigationBarItem(
             icon: BottomBarItem(
@@ -84,7 +85,7 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
                     : FontAwesomeIcons.user,
               ),
             ),
-            label: 'Account',
+            label: 'bottom.account_bottom'.tr(),
           ),
         ],
       ),

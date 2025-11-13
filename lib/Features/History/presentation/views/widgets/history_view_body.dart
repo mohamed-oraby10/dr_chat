@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,7 +39,7 @@ class HistoryViewBody extends StatelessWidget {
                   return Expanded(
                     child: Center(
                       child: Text(
-                        'Not found results.',
+                        'history.not_found'.tr(),
                         style: Styles.textStyle16,
                       ),
                     ),

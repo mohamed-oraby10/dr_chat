@@ -11,13 +11,12 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50.h,
-      width: 170.w,
+      width: 180.w,
       child: TextButton(
         style: TextButton.styleFrom(backgroundColor: AppColors.primaryColor),
         onPressed: onTap,
         child: Text(
           text,
-         
           style: Styles.textStyle18.copyWith(color: Colors.white),
         ),
       ),
