@@ -27,11 +27,11 @@ class PersonalInfoSection extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               AccountListTile(
-                text: snapshot.data!['name'],
+                text: snapshot.data?['name'] ?? '',
                 icon: FontAwesomeIcons.solidUser,
               ),
               AccountListTile(
-                text: snapshot.data!['email'],
+                text: snapshot.data?['email'] ?? '',
                 icon: FontAwesomeIcons.solidEnvelope,
               ),
             ],

@@ -103,4 +103,14 @@ class AuthRepoImplementation implements AuthRepo {
       return Left(AuthFailure.unKnown());
     }
   }
+
+  @override
+  Future<Either<Failure, void>> logoutUser() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      return Right(null);
+    } catch (e) {
+      return Left(AuthFailure.unKnown());
+    }
+  }
 }
