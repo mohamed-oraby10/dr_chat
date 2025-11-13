@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/personal_info_section.dart';
@@ -14,7 +15,7 @@ class AccountViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Account', style: Styles.textStyle22),
+          Text('account.title'.tr(), style: Styles.textStyle22),
           SizedBox(height: 30.h),
           PersonalInfoSection(),
           SizedBox(height: 30.h),

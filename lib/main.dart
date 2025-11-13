@@ -34,6 +34,13 @@ class DrChat extends StatelessWidget {
       designSize: Size(411.4, 866.28),
       minTextAdapt: true,
       builder: (context, child) {
+        final String fontFamily;
+        final local = context.locale;
+        if (local.languageCode == 'ar') {
+          fontFamily = 'Cairo';
+        } else {
+          fontFamily = 'Poppins';
+        }
         return MaterialApp.router(
           // builder: (context, child) {
           //   return Directionality(
@@ -46,7 +53,7 @@ class DrChat extends StatelessWidget {
           locale: context.locale,
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
-            fontFamily: 'Poppins',
+            fontFamily: fontFamily,
           ),
           routerConfig: AppRouter.router,
           debugShowCheckedModeBanner: false,

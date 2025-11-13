@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,7 +29,7 @@ class LogoutButton extends StatelessWidget {
             onTap: () {
               BlocProvider.of<LogoutCubit>(context).logoutUser();
             },
-            text: 'Logout',
+            text: 'account.logout'.tr(),
             icon: FontAwesomeIcons.arrowRightFromBracket,
           ),
         );

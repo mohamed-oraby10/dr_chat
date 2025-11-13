@@ -22,10 +22,13 @@ class _SettingsSectionState extends State<SettingsSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Settings', style: Styles.textStyle14.copyWith(fontSize: 15)),
+        Text(
+          'account.settings'.tr(),
+          style: Styles.textStyle14.copyWith(fontSize: 15),
+        ),
         SizedBox(height: 10.h),
         AccountListTile(
-          text: 'Language',
+          text: 'account.language'.tr(),
           icon: FontAwesomeIcons.globe,
           onTap: () async {
             final result = await showDialog<String>(
@@ -54,22 +57,25 @@ class _SettingsSectionState extends State<SettingsSection> {
           },
         ),
         AccountListTile(
-          text: 'Appearance',
+          text: 'account.appearance'.tr(),
           icon: FontAwesomeIcons.solidMoon,
           onTap: () {
             showDialog(
               context: context,
               builder: (context) {
                 return SettingDailog(
-                  option1: 'Light',
-                  option2: 'Dark',
+                  option1: 'account.theme_light'.tr(),
+                  option2: 'account.theme_dark'.tr(),
                   selectedValue: '1',
                 );
               },
             );
           },
         ),
-        AccountListTile(text: 'Help Center', icon: FontAwesomeIcons.circleInfo),
+        AccountListTile(
+          text: 'account.help_center'.tr(),
+          icon: FontAwesomeIcons.circleInfo,
+        ),
         const LogoutButton(),
       ],
     );
