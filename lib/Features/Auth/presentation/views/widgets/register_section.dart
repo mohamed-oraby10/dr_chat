@@ -30,7 +30,7 @@ class _RegisterSectionState extends State<RegisterSection> {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterSuccess) {
-          GoRouter.of(context).push(
+          GoRouter.of(context).go(
             AppRouter.kLoginSucceffullyView,
             extra: LoginSuccessfullyDataModel(
               title: 'Your account successfully created!',

@@ -26,7 +26,7 @@ class _LoginSectionState extends State<LoginSection> {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginSuccess) {
-          GoRouter.of(context).push(AppRouter.kLoginSucceffullyView);
+          GoRouter.of(context).go(AppRouter.kLoginSucceffullyView);
         } else if (state is LoginFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }

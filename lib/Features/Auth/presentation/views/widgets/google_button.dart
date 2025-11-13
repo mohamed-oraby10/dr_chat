@@ -18,7 +18,7 @@ class GoogleButton extends StatelessWidget {
     return BlocConsumer<LoginWithGoogleCubit, LoginWithGoogleState>(
       listener: (context, state) {
         if (state is LoginWithGoogleSuccess) {
-          GoRouter.of(context).push(AppRouter.kLoginSucceffullyView);
+          GoRouter.of(context).go(AppRouter.kLoginSucceffullyView);
         } else if (state is LoginWithGoogleFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }
