@@ -6,10 +6,12 @@ class SettingDailog extends StatelessWidget {
   const SettingDailog({
     super.key,
     required this.option1,
-    required this.option2,
+    required this.option2, required this.selectedValue, this.onChanged, 
   });
   final String option1;
   final String option2;
+   final String selectedValue;
+  final void Function(String?)? onChanged;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -21,8 +23,8 @@ class SettingDailog extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RadioChoice(option: option1),
-              RadioChoice(option: option2),
+              RadioChoice(option: option1, selectedValue: selectedValue, onChanged: onChanged, value:option1 ,),
+              RadioChoice(option: option2, selectedValue: selectedValue,onChanged: onChanged, value: option2,),
             ],
           ),
         ),

@@ -7,18 +7,22 @@ import 'package:new_dr_chat_application/core/di/service_locator.dart';
 import 'package:new_dr_chat_application/core/observers/bloc_observer.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/firebase_options.dart';
+import 'dart:ui' as ui;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- await EasyLocalization.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await EasyLocalization.ensureInitialized();
   setupServiceLocator();
   Bloc.observer = SimpleBlocObserver();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(EasyLocalization(
-    supportedLocales: [Locale('en'),Locale('ar')],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en'),
-    child: const DrChat()));
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en'),
+      child: const DrChat(),
+    ),
+  );
 }
 
 class DrChat extends StatelessWidget {
@@ -31,6 +35,12 @@ class DrChat extends StatelessWidget {
       minTextAdapt: true,
       builder: (context, child) {
         return MaterialApp.router(
+          // builder: (context, child) {
+          //   return Directionality(
+          //     textDirection: ui.TextDirection.ltr,
+          //     child: child!,
+          //   );
+          // },
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
