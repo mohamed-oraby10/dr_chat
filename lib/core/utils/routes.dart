@@ -78,7 +78,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kPasswordResetEmailView,
-        builder: (context, state) => const PasswordResetEmailView(),
+        builder: (context, state) {
+          final email = state.extra as String;
+          return PasswordResetEmailView(email: email);
+        },
       ),
       GoRoute(
         path: kChatView,

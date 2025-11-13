@@ -23,7 +23,7 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
     return BlocConsumer<ResetPasswordCubit, ResetPasswordState>(
       listener: (context, state) {
         if (state is ResetPasswordSuccess) {
-          GoRouter.of(context).push(AppRouter.kPasswordResetEmailView);
+          GoRouter.of(context).push(AppRouter.kPasswordResetEmailView,extra: email);
         } else if (state is ResetPasswordFailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/password_reset_email_app_bar.dart';
@@ -6,8 +5,8 @@ import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/reset_email_text_section.dart';
 
 class PasswordResetEmailViewBody extends StatelessWidget {
-  const PasswordResetEmailViewBody({super.key});
-
+  const PasswordResetEmailViewBody({super.key, required this.email});
+ final String email;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +16,7 @@ class PasswordResetEmailViewBody extends StatelessWidget {
           children: [
             const PasswordResetEmailAppBar(),
             const ResetEmailTextSection(),
-            const ResendEmailButtonSection(),
+             ResendEmailButtonSection(email: email),
           ],
         ),
       ),
