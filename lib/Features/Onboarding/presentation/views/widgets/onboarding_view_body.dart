@@ -28,7 +28,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
         curve: Curves.easeInOut,
       );
     } else {
-      GoRouter.of(context).push(AppRouter.kChatFreeView);
+      GoRouter.of(context).go(AppRouter.kChatFreeView);
     }
   }
 
