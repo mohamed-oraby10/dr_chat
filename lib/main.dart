@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/core/di/service_locator.dart';
 import 'package:new_dr_chat_application/core/observers/bloc_observer.dart';
+import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/firebase_options.dart';
 // import 'dart:ui' as ui;
@@ -15,8 +16,10 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   setupServiceLocator();
   Bloc.observer = SimpleBlocObserver();
+  await LocalStorageService.instance.init();
   runApp(
     EasyLocalization(
+      startLocale: Locale(LocalStorageService.instance.getLanguage()),
       supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: Locale('en'),

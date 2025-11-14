@@ -47,7 +47,9 @@ class SavedChatItem extends StatelessWidget {
                           'd MMMM yyyy | hh:mm a',
                           context.locale.toLanguageTag(),
                         ).format(chat.timestamp.toDate()),
-                        style: Styles.textStyle14,
+                        style: Styles.textStyle14.copyWith(
+                          fontWeight: FontWeight.normal,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),

@@ -5,9 +5,14 @@ import 'package:new_dr_chat_application/Features/Account/presentation/views/widg
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/settings_section.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
-class AccountViewBody extends StatelessWidget {
+class AccountViewBody extends StatefulWidget {
   const AccountViewBody({super.key});
 
+  @override
+  State<AccountViewBody> createState() => _AccountViewBodyState();
+}
+
+class _AccountViewBodyState extends State<AccountViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,7 +24,11 @@ class AccountViewBody extends StatelessWidget {
           SizedBox(height: 30.h),
           PersonalInfoSection(),
           SizedBox(height: 30.h),
-          SettingsSection(),
+          SettingsSection(
+            onChangedLanguage: () {
+              setState(() {});
+            },
+          ),
         ],
       ),
     );
