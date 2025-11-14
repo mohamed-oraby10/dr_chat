@@ -8,7 +8,6 @@ import 'package:new_dr_chat_application/core/observers/bloc_observer.dart';
 import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/firebase_options.dart';
-// import 'dart:ui' as ui;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,12 +44,6 @@ class DrChat extends StatelessWidget {
           fontFamily = 'Poppins';
         }
         return MaterialApp.router(
-          // builder: (context, child) {
-          //   return Directionality(
-          //     textDirection: ui.TextDirection.ltr,
-          //     child: child!,
-          //   );
-          // },
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
