@@ -17,7 +17,7 @@ class LogoutButton extends StatelessWidget {
     return BlocConsumer<LogoutCubit, LogoutState>(
       listener: (context, state) {
         if (state is LogoutSuccess) {
-          GoRouter.of(context).go(AppRouter.kLoginView);
+          GoRouter.of(context).go(AppRouter.kChatFreeView);
         } else if (state is Logoutfailure) {
           showCustomSnakBar(context, content: state.errMessage);
         }

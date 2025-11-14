@@ -1,8 +1,9 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets/custom_container.dart';
+import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/main_button.dart';
@@ -29,7 +30,13 @@ class ChatFreeStack extends StatelessWidget {
               MainButton(
                 text: 'Start chat',
                 onTap: () {
-                  GoRouter.of(context).push(AppRouter.kChatView);
+                  GoRouter.of(context).push(
+                    AppRouter.kChatView,
+                    extra: FirebaseFirestore.instance
+                        .collection(kChats)
+                        .doc()
+                        .id,
+                  );
                 },
               ),
               SizedBox(height: 30.h),

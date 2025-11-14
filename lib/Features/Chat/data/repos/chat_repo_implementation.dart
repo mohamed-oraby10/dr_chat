@@ -30,7 +30,7 @@ class ChatRepoImplementation implements ChatRepo {
     required List<MessageModel> messages,
     required String chatId,
   }) async {
-    final currentUserId = FirebaseAuth.instance.currentUser!.uid;
+    final currentUserId = FirebaseAuth.instance.currentUser?.uid;
     final chatRef = FirebaseFirestore.instance.collection(kChats).doc(chatId);
 
     final snapshot = await chatRef.get();
@@ -42,17 +42,19 @@ class ChatRepoImplementation implements ChatRepo {
       updatedMessages = List.from(existingChat.messages);
     }
 
-    updatedMessages.addAll(messages);
+    if (currentUserId != null) {
+      updatedMessages.addAll(messages);
 
-    final chatModel = ChatModel(
-      messages: updatedMessages,
-      userId: currentUserId,
-      timestamp: Timestamp.now(),
-      firstMessage: updatedMessages.first.message,
-      chatId: chatId,
-    );
+      final chatModel = ChatModel(
+        messages: updatedMessages,
+        userId: currentUserId,
+        timestamp: Timestamp.now(),
+        firstMessage: updatedMessages.first.message,
+        chatId: chatId,
+      );
 
-    await chatRef.set(chatModel.toJson(), SetOptions(merge: true));
+      await chatRef.set(chatModel.toJson(), SetOptions(merge: true));
+    }
   }
 
   @override
@@ -84,7 +86,9 @@ class ChatRepoImplementation implements ChatRepo {
         chats.add(ChatModel.fromJson(doc.data() as Map<String, dynamic>));
       }
       final chatsResult = chats
-          .where((c) => c.firstMessage.toLowerCase().contains(query.toLowerCase()))
+          .where(
+            (c) => c.firstMessage.toLowerCase().contains(query.toLowerCase()),
+          )
           .toList();
       return Right(chatsResult);
     } catch (e) {
