@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
@@ -6,8 +5,8 @@ import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_clip_image.dart';
 
 class ResetEmailTextSection extends StatelessWidget {
-  const ResetEmailTextSection({super.key});
-
+  const ResetEmailTextSection({super.key, required this.email});
+  final String email;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,7 +23,7 @@ class ResetEmailTextSection extends StatelessWidget {
         SizedBox(height: 15.h),
         Text(
           textAlign: TextAlign.center,
-          'mohamedoraby@gmail.com',
+          email,
           style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 20.h),

@@ -44,7 +44,7 @@ class LoginSuccessfullyBody extends StatelessWidget {
             MainButton(
               text: 'Continue',
               onTap: () {
-                GoRouter.of(context).go(AppRouter.kHistoryView);
+                GoRouter.of(context).go(AppRouter.kAccountView);
               },
             ),
           ],

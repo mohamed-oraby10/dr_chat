@@ -6,7 +6,7 @@ import 'package:new_dr_chat_application/Features/Auth/presentation/views/widgets
 
 class PasswordResetEmailViewBody extends StatelessWidget {
   const PasswordResetEmailViewBody({super.key, required this.email});
- final String email;
+  final String email;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,8 +15,8 @@ class PasswordResetEmailViewBody extends StatelessWidget {
         child: Column(
           children: [
             const PasswordResetEmailAppBar(),
-            const ResetEmailTextSection(),
-             ResendEmailButtonSection(email: email),
+            ResetEmailTextSection(email: email),
+            ResendEmailButtonSection(email: email),
           ],
         ),
       ),
