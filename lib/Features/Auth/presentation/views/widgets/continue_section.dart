@@ -14,6 +14,14 @@ class ContinueWithGoogleSection extends StatelessWidget {
         Center(child: Text('Or sign in with', style: Styles.textStyle14)),
         SizedBox(height: 25.h),
         const GoogleButton(),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     const GoogleButton(),
+        //     SizedBox(width: 15.w),
+        //     const FacebookButton(),
+        //   ],
+        // ),
       ],
     );
   }

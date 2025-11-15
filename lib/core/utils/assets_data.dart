@@ -17,4 +17,5 @@ abstract class AssetsData {
   static const clockIcon = 'assets/images/clock.svg';
   static const usernameIcon = 'assets/images/user.svg';
   static const chatSplashIcon = 'assets/images/Logo (6).svg';
+  static const facebookIcon = 'assets/images/c.svg';
 }
