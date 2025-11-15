@@ -8,10 +8,4 @@ class ThemeProvider extends ChangeNotifier {
     await LocalStorageService.instance.setTheme(isDark: value);
     notifyListeners();
   }
-  //  ThemeData get theme {
-  //   return ThemeData(
-  //     colorScheme: isDark ? darkScheme : lightScheme,
-  //     useMaterial3: true,
-  //   );
-  // }
 }

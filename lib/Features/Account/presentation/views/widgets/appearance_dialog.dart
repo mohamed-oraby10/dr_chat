@@ -38,8 +38,9 @@ class _AppearanceDialogState extends State<AppearanceDialog> {
               context,
               listen: false,
             );
-
             return SettingDailog(
+              value1: 'Light',
+              value2: 'Dark',
               option1: 'account.theme_light'.tr(),
               option2: 'account.theme_dark'.tr(),
               selectedValue: selectedTheme,

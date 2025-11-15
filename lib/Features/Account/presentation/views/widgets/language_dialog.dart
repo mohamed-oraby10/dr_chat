@@ -34,6 +34,8 @@ class _LanguageDialogState extends State<LanguageDialog> {
           context: context,
           builder: (context) {
             return SettingDailog(
+              value1: 'English',
+              value2: 'العربية',
               option1: 'English',
               option2: 'العربية',
               selectedValue: selectedLanguage,

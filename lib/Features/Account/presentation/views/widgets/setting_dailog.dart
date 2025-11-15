@@ -6,11 +6,18 @@ class SettingDailog extends StatelessWidget {
   const SettingDailog({
     super.key,
     required this.option1,
-    required this.option2, required this.selectedValue, this.onChanged, 
+    required this.option2,
+    required this.selectedValue,
+    this.onChanged,
+    required this.value1,
+    required this.value2,
   });
   final String option1;
   final String option2;
-   final String selectedValue;
+  final String selectedValue;
+  final String value1;
+  final String value2;
+
   final void Function(String?)? onChanged;
   @override
   Widget build(BuildContext context) {
@@ -23,8 +30,18 @@ class SettingDailog extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              RadioChoice(option: option1, selectedValue: selectedValue, onChanged: onChanged, value:option1 ,),
-              RadioChoice(option: option2, selectedValue: selectedValue,onChanged: onChanged, value: option2,),
+              RadioChoice(
+                option: option1,
+                selectedValue: selectedValue,
+                onChanged: onChanged,
+                value: value1,
+              ),
+              RadioChoice(
+                option: option2,
+                selectedValue: selectedValue,
+                onChanged: onChanged,
+                value: value2,
+              ),
             ],
           ),
         ),

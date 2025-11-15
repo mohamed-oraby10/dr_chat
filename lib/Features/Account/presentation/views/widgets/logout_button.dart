@@ -6,8 +6,11 @@ import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/account_list_tile.dart';
 import 'package:new_dr_chat_application/Features/Auth/presentation/cubits/logout_cubit/logout_cubit.dart';
+import 'package:new_dr_chat_application/core/providers/theme_provider.dart';
+import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
 import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_bar.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
+import 'package:provider/provider.dart';
 
 class LogoutButton extends StatelessWidget {
   const LogoutButton({super.key});
@@ -23,10 +26,14 @@ class LogoutButton extends StatelessWidget {
         }
       },
       builder: (context, state) {
+        final themeProvider = Provider.of<ThemeProvider>(context);
         return ModalProgressHUD(
           inAsyncCall: state is LogoutLoading,
           child: AccountListTile(
             onTap: () {
+              themeProvider.toggleTheme(value: false);
+              context.setLocale(const Locale('en'));
+              LocalStorageService.instance.setLanguage(languageCode: 'en');
               BlocProvider.of<LogoutCubit>(context).logoutUser();
             },
             text: 'account.logout'.tr(),
