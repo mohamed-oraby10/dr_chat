@@ -17,9 +17,8 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => RemoveAllChatsCubit(
-        getIt.get<ChatRepoImplementation>(),
-      ),
+      create: (context) =>
+          RemoveAllChatsCubit(getIt.get<ChatRepoImplementation>()),
       child: BlocConsumer<RemoveAllChatsCubit, RemoveAllChatsState>(
         listener: (context, state) {
           if (state is RemoveAllChatsFailure) {
@@ -35,7 +34,7 @@ class DeleteHistoryBottomSheet extends StatelessWidget {
         builder: (context, state) {
           return Container(
             padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
-            height: MediaQuery.of(context).size.height * .27,
+            height: MediaQuery.of(context).size.height * .25,
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -14,14 +14,14 @@ class CancelButton extends StatelessWidget {
       height: 50.h,
       width: 170.w,
       child: TextButton(
-        style: TextButton.styleFrom(backgroundColor: AppColors.thirdColor),
+        style: TextButton.styleFrom(backgroundColor: AppColors.third(context)),
         onPressed: () {
           GoRouter.of(context).pop();
         },
         child: Text(
           "history.cancel_button".tr(),
           style: Styles.textStyle18.copyWith(
-            color: AppColors.primaryColor,
+            color: AppColors.primary(context),
             fontWeight: FontWeight.bold,
           ),
         ),

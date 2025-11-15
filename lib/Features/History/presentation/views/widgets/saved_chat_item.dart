@@ -23,7 +23,7 @@ class SavedChatItem extends StatelessWidget {
           width: double.infinity,
           height: 110.h,
           padding: EdgeInsets.all(15.r),
-          decoration: BoxDecoration(color: AppColors.thirdColor),
+          decoration: BoxDecoration(color: AppColors.third(context)),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -34,7 +34,7 @@ class HistoryViewBody extends StatelessWidget {
           >(
             builder: (context, state) {
               if (state is FetchChatsSearchedResultsLoading) {
-                return Expanded(child: const CustomCircularIndicator(forColor: AppColors.primaryColor,));
+                return Expanded(child:  CustomCircularIndicator(forColor: AppColors.primary(context),));
               } else if (state is FetchChatsSearchedResultsSuccess) {
                 if (state.chats.isEmpty) {
                   return Expanded(
