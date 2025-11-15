@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:new_dr_chat_application/core/app_keys.dart';
 import 'package:new_dr_chat_application/core/di/service_locator.dart';
 import 'package:new_dr_chat_application/core/observers/bloc_observer.dart';
 import 'package:new_dr_chat_application/core/providers/theme_provider.dart';
@@ -47,6 +48,7 @@ class DrChat extends StatelessWidget {
             ? 'Cairo'
             : 'Poppins';
         return MaterialApp.router(
+          scaffoldMessengerKey: rootScaffoldMessengerKey,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,

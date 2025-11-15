@@ -47,7 +47,7 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
       child: BottomNavigationBar(
         onTap: (value) {
           if (value != currentIndex) {
-            GoRouter.of(context).go(
+            GoRouter.of(context).push(
               routes[value],
               extra: FirebaseFirestore.instance.collection(kChats).doc().id,
             );

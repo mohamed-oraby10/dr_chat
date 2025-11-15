@@ -12,7 +12,7 @@ class DismissibleSavedChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(25.r),
+      borderRadius: BorderRadius.circular(25.r),
       child: Dismissible(
         key: Key(chat.chatId),
         background: Padding(

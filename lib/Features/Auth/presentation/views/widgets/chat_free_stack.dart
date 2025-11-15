@@ -24,7 +24,7 @@ class ChatFreeStack extends StatelessWidget {
               Text(
                 textAlign: TextAlign.center,
                 'Start chatting with Dr Chat now. You can ask me anything about therapy',
-                style: Styles.textStyle16.copyWith(),
+                style: Styles.textStyle16,
               ),
               SizedBox(height: 30.h),
               MainButton(
@@ -43,7 +43,7 @@ class ChatFreeStack extends StatelessWidget {
               Text(
                 textAlign: TextAlign.center,
                 'Or login to keep your conversations',
-                style: Styles.textStyle16.copyWith(),
+                style: Styles.textStyle16,
               ),
               SizedBox(height: 20.h),
               MainButton(

@@ -17,7 +17,7 @@ class SavedChatItem extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 6.h),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).go(AppRouter.kChatView, extra: chat.chatId);
+          GoRouter.of(context).push(AppRouter.kChatView, extra: chat.chatId);
         },
         child: Container(
           width: double.infinity,
@@ -58,7 +58,11 @@ class SavedChatItem extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  GoRouter.of(
+                    context,
+                  ).push(AppRouter.kChatView, extra: chat.chatId);
+                },
                 icon: Icon(Icons.arrow_forward_ios_rounded),
               ),
             ],
