@@ -29,7 +29,7 @@ class GoogleButton extends StatelessWidget {
           child: Container(
             height: 55.h,
             width: 58.w,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50)),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.r)),
             child: TextButton(
               onPressed: () {
                 BlocProvider.of<LoginWithGoogleCubit>(

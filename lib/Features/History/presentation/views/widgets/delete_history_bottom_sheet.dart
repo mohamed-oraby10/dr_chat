@@ -54,11 +54,6 @@ final void Function()? onTap;
                     CustomButton(
                       text: 'history.clear_all_button'.tr(),
                       onTap: onTap,
-                      // onTap: () {
-                      //   BlocProvider.of<RemoveAllChatsCubit>(
-                      //     context,
-                      //   ).removeAllChats();
-                      // },
                     ),
                   ],
                 ),

@@ -17,7 +17,7 @@ class SecondButton extends StatelessWidget {
           side: BorderSide(width: 1.w),
           backgroundColor: Colors.white,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(16.r),
           ),
         ),
         child: Text(

@@ -34,7 +34,7 @@ class _ForgetPasswordSectionState extends State<ForgetPasswordSection> {
           children: [
             CustomTextFormField(
               onChanged: (value) => email = value,
-              preIcon: Icon(Icons.email_rounded, color: Colors.black, size: 26),
+              preIcon: Icon(Icons.email_rounded, color: Colors.black, size: 26.sp),
               hintText: 'E-Mail',
             ),
             SizedBox(height: 30.h),

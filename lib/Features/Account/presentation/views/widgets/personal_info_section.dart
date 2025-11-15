@@ -24,7 +24,7 @@ class PersonalInfoSection extends StatelessWidget {
             children: [
               Text(
                 'account.personal_info'.tr(),
-                style: Styles.textStyle14.copyWith(fontSize: 15),
+                style: Styles.textStyle14.copyWith(fontSize: 15.sp),
               ),
               SizedBox(height: 10.h),
               AccountListTile(
