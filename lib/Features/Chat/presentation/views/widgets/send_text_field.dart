@@ -1,14 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/bot_response_cubit/bot_response_cubit.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/colors.dart';
 
 class SendTextField extends StatefulWidget {
   const SendTextField({super.key, required this.onSubmitted});
   final Function(String) onSubmitted;
-
   @override
   State<SendTextField> createState() => _SendTextFieldState();
 }
@@ -32,28 +33,33 @@ class _SendTextFieldState extends State<SendTextField> {
         children: [
           SizedBox(
             width: 300.w,
-            child: TextField(
-              autofocus: false,
-              textInputAction: TextInputAction.send,
-              controller: controller,
-              onSubmitted: (_) => handleSend(),
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.r),
-                  borderSide: BorderSide(
-                    color: AppColors.primaryColor,
-                    width: 1.5.w,
+            child: BlocBuilder<BotResponseCubit, BotResponseState>(
+              builder: (context, state) {
+                return TextField(
+                  enabled: state is BotResponseLoading ? false : true,
+                  autofocus: false,
+                  textInputAction: TextInputAction.send,
+                  controller: controller,
+                  onSubmitted: (_) => handleSend(),
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.r),
+                      borderSide: BorderSide(
+                        color: AppColors.primaryColor,
+                        width: 1.5.w,
+                      ),
+                    ),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 15.h,
+                      horizontal: 20.w,
+                    ),
+                    hintText: 'chat.type_message_hint'.tr(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.r),
+                    ),
                   ),
-                ),
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 15.h,
-                  horizontal: 20.w,
-                ),
-                hintText: 'chat.type_message_hint'.tr(),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.r),
-                ),
-              ),
+                );
+              },
             ),
           ),
           GestureDetector(
