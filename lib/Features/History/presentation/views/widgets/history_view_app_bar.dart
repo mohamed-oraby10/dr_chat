@@ -9,8 +9,9 @@ import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/back_arrow_icon_button.dart';
 
 class HistoryViewAppBar extends StatefulWidget {
-  const HistoryViewAppBar({super.key, this.onChanged});
+  const HistoryViewAppBar({super.key, this.onChanged, this.onTap});
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   @override
   State<HistoryViewAppBar> createState() => _HistoryViewAppBarState();
 }
@@ -45,6 +46,7 @@ class _HistoryViewAppBarState extends State<HistoryViewAppBar> {
                       Text('history.title'.tr(), style: Styles.textStyle22),
                       Spacer(),
                       AppBarActions(
+                        onTap:widget.onTap ,
                         isSearch: isSearch,
                         onPress: () {
                           setState(() {

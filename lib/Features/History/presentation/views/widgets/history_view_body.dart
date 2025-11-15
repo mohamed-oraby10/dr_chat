@@ -2,7 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/chats_searched_results_cubit/fetch_chats_searched_results_cubit.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/remove_all_chats/remove_all_chats_cubit.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/history_view_app_bar.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/saved_chats_list_view.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/search_list_view.dart';
@@ -10,8 +12,15 @@ import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_circular_indicator.dart';
 
-class HistoryViewBody extends StatelessWidget {
+class HistoryViewBody extends StatefulWidget {
   const HistoryViewBody({super.key});
+
+  @override
+  State<HistoryViewBody> createState() => _HistoryViewBodyState();
+}
+
+class _HistoryViewBodyState extends State<HistoryViewBody> {
+  bool isChatsEmpty = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +31,14 @@ class HistoryViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           HistoryViewAppBar(
+            onTap: isChatsEmpty
+                ? null
+                : () {
+                    BlocProvider.of<RemoveAllChatsCubit>(
+                      context,
+                    ).removeAllChats();
+                    GoRouter.of(context).pop();
+                  },
             onChanged: (value) {
               BlocProvider.of<FetchChatsSearchedResultsCubit>(
                 context,
@@ -34,7 +51,11 @@ class HistoryViewBody extends StatelessWidget {
           >(
             builder: (context, state) {
               if (state is FetchChatsSearchedResultsLoading) {
-                return Expanded(child:  CustomCircularIndicator(forColor: AppColors.primary(context),));
+                return Expanded(
+                  child: CustomCircularIndicator(
+                    forColor: AppColors.primary(context),
+                  ),
+                );
               } else if (state is FetchChatsSearchedResultsSuccess) {
                 if (state.chats.isEmpty) {
                   return Expanded(
@@ -54,7 +75,15 @@ class HistoryViewBody extends StatelessWidget {
                   ),
                 );
               }
-              return Expanded(child: SavedChatsListView());
+              return Expanded(
+                child: SavedChatsListView(
+                  isChatsEmpty: (value) {
+                    setState(() {
+                      isChatsEmpty = value;
+                    });
+                  },
+                ),
+              );
             },
           ),
         ],
