@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/account_list_tile.dart';
+import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/appearance_dialog.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/language_dialog.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/logout_button.dart';
-import 'package:new_dr_chat_application/Features/Account/presentation/views/widgets/setting_dailog.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class SettingsSection extends StatelessWidget {
@@ -22,22 +22,7 @@ class SettingsSection extends StatelessWidget {
         ),
         SizedBox(height: 10.h),
         LanguageDialog(onChangedLanguage: onChangedLanguage,),
-        AccountListTile(
-          text: 'account.appearance'.tr(),
-          icon: FontAwesomeIcons.solidMoon,
-          onTap: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return SettingDailog(
-                  option1: 'account.theme_light'.tr(),
-                  option2: 'account.theme_dark'.tr(),
-                  selectedValue: '1',
-                );
-              },
-            );
-          },
-        ),
+        AppearanceDialog(),
         AccountListTile(
           text: 'account.help_center'.tr(),
           icon: FontAwesomeIcons.circleInfo,

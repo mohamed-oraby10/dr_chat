@@ -6,6 +6,7 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/cubits/chats_
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/history_view_app_bar.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/saved_chats_list_view.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/search_list_view.dart';
+import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_circular_indicator.dart';
 
@@ -33,7 +34,7 @@ class HistoryViewBody extends StatelessWidget {
           >(
             builder: (context, state) {
               if (state is FetchChatsSearchedResultsLoading) {
-                return Expanded(child: const CustomCircularIndicator());
+                return Expanded(child: const CustomCircularIndicator(forColor: AppColors.primaryColor,));
               } else if (state is FetchChatsSearchedResultsSuccess) {
                 if (state.chats.isEmpty) {
                   return Expanded(

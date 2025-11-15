@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorageService {
-    LocalStorageService._();
+  LocalStorageService._();
   static final LocalStorageService instance = LocalStorageService._();
   SharedPreferences? pref;
   Future<void> init() async {
@@ -12,7 +12,15 @@ class LocalStorageService {
     await pref?.setString('language', languageCode);
   }
 
-  String getLanguage()  {
-   return pref?.getString('language') ?? 'en';
+  String getLanguage() {
+    return pref?.getString('language') ?? 'en';
+  }
+
+  Future<void> setTheme({required bool isDark}) async {
+    await pref?.setBool('theme', isDark);
+  }
+
+  bool getTheme() {
+    return pref?.getBool('theme') ?? false;
   }
 }
