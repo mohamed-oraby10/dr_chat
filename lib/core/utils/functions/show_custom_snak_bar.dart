@@ -5,7 +5,7 @@ import 'package:new_dr_chat_application/core/utils/styles.dart';
 void showCustomSnakBar(context, {required String content}) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primary(context),
       content: Text(content, style: Styles.textStyle14),
     ),
   );

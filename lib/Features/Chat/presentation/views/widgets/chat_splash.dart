@@ -18,7 +18,7 @@ class ChatSplash extends StatelessWidget {
         SizedBox(height: 12.h),
         Text(
           'chat.welcome_title'.tr(),
-          style: Styles.textStyle22.copyWith(color: AppColors.primaryColor),
+          style: Styles.textStyle22.copyWith(color: AppColors.primary(context)),
         ),
         SizedBox(height: 8.h),
         Text(

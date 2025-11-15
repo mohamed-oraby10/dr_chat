@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_dr_chat_application/core/utils/colors.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class RadioChoice extends StatelessWidget {
@@ -17,6 +18,7 @@ class RadioChoice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RadioListTile<String>(
+      activeColor: AppColors.primary(context),
       controlAffinity: ListTileControlAffinity.trailing,
       title: Text(
         option,

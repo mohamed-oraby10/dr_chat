@@ -18,10 +18,7 @@ class AnimatedTextResponse extends StatelessWidget {
         TypewriterAnimatedText(
           cursor: ' ',
           botRepaly,
-          textStyle: Styles.textStyle16.copyWith(
-            color: Colors.black,
-            fontWeight: FontWeight.normal,
-          ),
+          textStyle: Styles.textStyle16.copyWith(fontWeight: FontWeight.normal),
         ),
       ],
     );

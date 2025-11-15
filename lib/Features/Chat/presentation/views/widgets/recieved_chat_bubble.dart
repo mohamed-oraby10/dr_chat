@@ -17,7 +17,7 @@ class RecievedChatBubble extends StatelessWidget {
             maxWidth: MediaQuery.of(context).size.width * .7,
           ),
           decoration: BoxDecoration(
-            color: AppColors.thirdColor,
+            color: AppColors.third(context),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20.r),
               topRight: Radius.circular(20.r),
