@@ -66,9 +66,11 @@
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1763230970.png" alt="Chat Free Screen" width="30%" style="margin-right: 10px;">
+    <img src="assets/images/Screenshot_1763319533.png" alt="Chat Free Screen" width="30%" style="margin-right: 10px;">
+
 </p>
 
----
+---  
 
 ## 🔐 Forget & Reset Password Screens
 
