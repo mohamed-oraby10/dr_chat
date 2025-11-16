@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_dr_chat_application/core/providers/theme_provider.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
+import 'package:provider/provider.dart';
 
 class ChatViewAppBar extends StatelessWidget {
   const ChatViewAppBar({super.key});
@@ -18,7 +20,14 @@ class ChatViewAppBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(bottom: 15.h),
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: .5.w)),
+        border: Border(
+          bottom: BorderSide(
+            width: .5.w,
+            color: Provider.of<ThemeProvider>(context).isDark
+                ? Colors.white
+                : Colors.black,
+          ),
+        ),
       ),
       child: Row(
         children: [
