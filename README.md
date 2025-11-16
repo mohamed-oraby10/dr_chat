@@ -45,6 +45,7 @@
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1763230930.png" alt="Splash Screen" width="30%" style="margin-right: 10px;">
+
 </p>
 
 ---
@@ -97,6 +98,17 @@
   <img src="assets/screenshots/Screenshot_1763303255.png" alt="Register Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763303259.png" alt="Register Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763303262.png" alt="Register Screen" width="30%" style="margin-right: 10px;">
+</p>
+
+---
+
+
+## 🚀 Chat Splash Screen
+
+<p align="center">
+    <img src="assets/screenshots/Screenshot_1763312847.png" alt="Splash Screen" width="30%" style="margin-right: 10px;">
+  <img src="assets/screenshots/Screenshot_1763316617.png" alt="Splash Screen" width="30%" style="margin-right: 10px;">
+
 </p>
 
 ---
