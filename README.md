@@ -117,11 +117,11 @@
 
 <p align="center">
   <img src="assets/screenshots/Screenshot_1763300836.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
-  <img src="assets/screenshots/Screenshot_1763300851.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
-  <img src="assets/screenshots/Screenshot_1763300863.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
+  <img src="assets/screenshots/Screenshot_1763316454.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
+  <img src="assets/screenshots/Screenshot_1763316495.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300923.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300970.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
-  <img src="assets/screenshots/Screenshot_1763300997.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
+  <img src="assets/screenshots/Screenshot_1763316558.png" alt="Chat Screen" width="30%" style="margin-right: 10px;">
 </p>
 
 ---
