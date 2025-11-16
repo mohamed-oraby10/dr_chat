@@ -53,6 +53,7 @@ dependencies:
   smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.14.4
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
@@ -91,3 +92,7 @@ flutter:
         - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/WhatsApp Image 2025-11-14 at 16.07.09_8f396e53.jpg"

@@ -78,6 +78,8 @@ class AuthRepoImplementation implements AuthRepo {
   @override
   Future<Either<Failure, UserCredential>> loginWithGoogle() async {
     try {
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+      await googleSignIn.signOut();
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
@@ -109,6 +111,8 @@ class AuthRepoImplementation implements AuthRepo {
   Future<Either<Failure, void>> logoutUser() async {
     try {
       await FirebaseAuth.instance.signOut();
+      var currentUser = FirebaseAuth.instance.currentUser;
+      currentUser = null;
       return Right(null);
     } catch (e) {
       return Left(AuthFailure.unKnown());

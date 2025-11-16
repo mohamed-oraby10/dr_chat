@@ -12,8 +12,7 @@ import 'package:new_dr_chat_application/core/utils/functions/show_custom_snak_ba
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 
 class DeleteHistoryBottomSheet extends StatelessWidget {
-  const DeleteHistoryBottomSheet({super.key, this.onTap});
-final void Function()? onTap;
+  const DeleteHistoryBottomSheet({super.key,});
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -53,7 +52,12 @@ final void Function()? onTap;
                     SizedBox(width: 16.w),
                     CustomButton(
                       text: 'history.clear_all_button'.tr(),
-                      onTap: onTap,
+                      onTap: (){
+                            BlocProvider.of<RemoveAllChatsCubit>(
+                      context,
+                    ).removeAllChats();
+                    GoRouter.of(context).pop();
+                      },
                     ),
                   ],
                 ),

@@ -47,13 +47,25 @@ class _ButtomNavigationBarState extends State<ButtomNavigationBar> {
       child: BottomNavigationBar(
         onTap: (value) {
           if (value != currentIndex) {
-            GoRouter.of(context).push(
-              routes[value],
-              extra: FirebaseFirestore.instance.collection(kChats).doc().id,
-            );
+            final chatId = FirebaseFirestore.instance
+                .collection(kChats)
+                .doc()
+                .id;
+
+            final isInChatPage = GoRouterState.of(
+              context,
+            ).uri.toString().startsWith(AppRouter.kChatView);
+
+            if (isInChatPage) {
+              GoRouter.of(context).push(routes[value], extra: chatId);
+            } else {
+              GoRouter.of(context).go(routes[value]);
+            }
+
             setState(() => currentIndex = value);
           }
         },
+
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.primaryColor,

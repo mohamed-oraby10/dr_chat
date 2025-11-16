@@ -4,8 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/widgets/delete_history_bottom_sheet.dart';
 
 class AppBarActions extends StatelessWidget {
-  const AppBarActions({super.key, required this.isSearch, this.onPress, this.onTap});
-  final void Function()? onTap;
+  const AppBarActions({super.key, required this.isSearch, this.onPress});
   final bool isSearch;
   final void Function()? onPress;
   @override
@@ -24,7 +23,7 @@ class AppBarActions extends StatelessWidget {
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
-                      return DeleteHistoryBottomSheet(onTap: onTap,);
+                      return DeleteHistoryBottomSheet();
                     },
                   );
                 },

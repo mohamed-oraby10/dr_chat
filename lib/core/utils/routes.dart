@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/Features/Account/presentation/views/account_view.dart';
@@ -12,6 +14,8 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/chat_vi
 import 'package:new_dr_chat_application/Features/History/presentation/views/history_view.dart';
 import 'package:new_dr_chat_application/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_view.dart';
+import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
+import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/widgets/buttom_navigation_bar.dart';
 
 abstract class AppRouter {
@@ -29,7 +33,29 @@ abstract class AppRouter {
   static final router = GoRouter(
     initialLocation: '/',
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const SplashView()),
+      GoRoute(
+        path: '/',
+        builder: (context, state) {
+          final isFirstTime = LocalStorageService.instance.getFirstTime();
+          final user = FirebaseAuth.instance.currentUser;
+
+          if (isFirstTime) {
+            LocalStorageService.instance.setFirstTime(false);
+            return const SplashView();
+          }
+
+          if (user != null) {
+            final chatId = FirebaseFirestore.instance
+                .collection(kChats)
+                .doc()
+                .id;
+            return ChatView(chatId: chatId);
+          }
+
+          return const ChatFreeView();
+        },
+      ),
+
       ShellRoute(
         builder: (context, state, child) {
           return Scaffold(
@@ -86,7 +112,9 @@ abstract class AppRouter {
       GoRoute(
         path: kChatView,
         builder: (context, state) {
-          final chatId = state.extra as String;
+          final chatId =
+              state.extra as String? ??
+              FirebaseFirestore.instance.collection(kChats).doc().id;
           return ChatView(chatId: chatId);
         },
       ),
