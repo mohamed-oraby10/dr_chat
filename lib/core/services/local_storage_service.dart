@@ -33,4 +33,8 @@ class LocalStorageService {
   bool getTheme() {
     return pref?.getBool('theme') ?? false;
   }
+
+  bool getAppOpenedBefore() => pref?.getBool("isAppOpenedBefore") ?? false;
+
+  setAppOpenedBefore(bool value) => pref?.setBool("isAppOpenedBefore", value);
 }

@@ -13,6 +13,7 @@ import 'package:new_dr_chat_application/Features/Auth/presentation/views/registe
 import 'package:new_dr_chat_application/Features/Chat/presentation/views/chat_view.dart';
 import 'package:new_dr_chat_application/Features/History/presentation/views/history_view.dart';
 import 'package:new_dr_chat_application/Features/Onboarding/presentation/views/onboarding_view.dart';
+import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_chat_view.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_view.dart';
 import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
 import 'package:new_dr_chat_application/core/utils/constants.dart';
@@ -41,15 +42,12 @@ abstract class AppRouter {
 
           if (isFirstTime) {
             LocalStorageService.instance.setFirstTime(false);
+            LocalStorageService.instance.setAppOpenedBefore(true);
             return const SplashView();
           }
 
           if (user != null) {
-            final chatId = FirebaseFirestore.instance
-                .collection(kChats)
-                .doc()
-                .id;
-            return ChatView(chatId: chatId);
+            return const SplashChatView();
           }
 
           return const ChatFreeView();
