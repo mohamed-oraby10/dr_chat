@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+import 'package:new_dr_chat_application/Features/Chat/presentation/views/widgets/chat_app_bar_actions.dart';
 import 'package:new_dr_chat_application/core/providers/theme_provider.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
 import 'package:new_dr_chat_application/core/utils/constants.dart';
@@ -13,8 +14,8 @@ import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:provider/provider.dart';
 
 class ChatViewAppBar extends StatelessWidget {
-  const ChatViewAppBar({super.key});
-
+  const ChatViewAppBar({super.key, required this.isLoggedIn});
+  final bool isLoggedIn;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,29 +42,20 @@ class ChatViewAppBar extends StatelessWidget {
             ],
           ),
           Spacer(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () {
-                  GoRouter.of(context).go(
-                    AppRouter.kChatView,
-                    extra: FirebaseFirestore.instance
-                        .collection(kChats)
-                        .doc()
-                        .id,
-                  );
-                },
-                icon: Icon(FontAwesomeIcons.penToSquare, size: 25.sp),
-              ),
-              IconButton(
-                onPressed: () {
-                  GoRouter.of(context).push(AppRouter.kHistoryView);
-                },
-                icon: Icon(FontAwesomeIcons.clockRotateLeft, size: 25.sp),
-              ),
-            ],
-          ),
+          isLoggedIn
+              ? ChatViewAppBarActions()
+              : IconButton(
+                  onPressed: () {
+                    GoRouter.of(context).go(
+                      AppRouter.kChatView,
+                      extra: FirebaseFirestore.instance
+                          .collection(kChats)
+                          .doc()
+                          .id,
+                    );
+                  },
+                  icon: Icon(FontAwesomeIcons.penToSquare, size: 25.sp),
+                ),
         ],
       ),
     );

@@ -47,7 +47,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
       padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
       child: Column(
         children: [
-          ChatViewAppBar(),
+          ChatViewAppBar(isLoggedIn: isLoggedIn,),
           SizedBox(height: 20.h),
           Expanded(
             child: BlocConsumer<BotResponseCubit, BotResponseState>(
