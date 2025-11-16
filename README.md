@@ -120,6 +120,7 @@
   <img src="assets/screenshots/Screenshot_1763301318.png" alt="History Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300740.png" alt="History Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300752.png" alt="History Screen" width="30%" style="margin-right: 10px;">
+    <img src="assets/screenshots/Screenshot 2025-11-16 165104.jpg" alt="History Screen" width="30%" style="margin-right: 10px;">  
   <img src="assets/screenshots/Screenshot_1763300767.png" alt="History Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300770.png" alt="History Screen" width="30%" style="margin-right: 10px;">
   <img src="assets/screenshots/Screenshot_1763300783.png" alt="History Screen" width="30%" style="margin-right: 10px;">
