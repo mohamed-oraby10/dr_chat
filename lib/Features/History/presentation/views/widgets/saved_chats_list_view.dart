@@ -10,7 +10,7 @@ import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_circular_indicator.dart';
 
 class SavedChatsListView extends StatelessWidget {
-  const SavedChatsListView({super.key,});
+  const SavedChatsListView({super.key});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -22,12 +22,6 @@ class SavedChatsListView extends StatelessWidget {
         if (snapshots.connectionState == ConnectionState.waiting) {
           return const CustomCircularIndicator();
         }
-        final docs = snapshots.data?.docs ?? [];
-        if (docs.isEmpty) {
-          return Center(
-            child: Text('history.no_chats'.tr(), style: Styles.textStyle16),
-          );
-        }
         List<ChatModel> chats = [];
         if (snapshots.hasData) {
           for (var doc in snapshots.data!.docs) {
@@ -37,7 +31,11 @@ class SavedChatsListView extends StatelessWidget {
         final filteredChats = chats
             .where((c) => c.userId == FirebaseAuth.instance.currentUser!.uid)
             .toList();
-      
+        if (filteredChats.isEmpty) {
+          return Center(
+            child: Text('history.no_chats'.tr(), style: Styles.textStyle16),
+          );
+        }
         return ListView.builder(
           physics: BouncingScrollPhysics(),
           itemCount: filteredChats.length,

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:new_dr_chat_application/core/utils/assets_data.dart';
+import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/utils/routes.dart';
 import 'package:new_dr_chat_application/core/utils/styles.dart';
 import 'package:new_dr_chat_application/core/widgets/custom_clip_image.dart';
@@ -44,7 +46,10 @@ class LoginSuccessfullyBody extends StatelessWidget {
             MainButton(
               text: 'Continue',
               onTap: () {
-                GoRouter.of(context).go(AppRouter.kAccountView);
+                GoRouter.of(context).go(
+                  AppRouter.kChatView,
+                  extra: FirebaseFirestore.instance.collection(kChats).doc().id,
+                );
               },
             ),
           ],

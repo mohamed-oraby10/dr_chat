@@ -32,14 +32,28 @@ class ChatViewAppBar extends StatelessWidget {
             ],
           ),
           Spacer(),
-          IconButton(
-            onPressed: () {
-              GoRouter.of(context).push(
-                AppRouter.kChatView,
-                extra: FirebaseFirestore.instance.collection(kChats).doc().id,
-              );
-            },
-            icon: Icon(FontAwesomeIcons.penToSquare, size: 26.sp),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () {
+                  GoRouter.of(context).go(
+                    AppRouter.kChatView,
+                    extra: FirebaseFirestore.instance
+                        .collection(kChats)
+                        .doc()
+                        .id,
+                  );
+                },
+                icon: Icon(FontAwesomeIcons.penToSquare, size: 25.sp),
+              ),
+              IconButton(
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kHistoryView);
+                },
+                icon: Icon(FontAwesomeIcons.clockRotateLeft, size: 25.sp),
+              ),
+            ],
           ),
         ],
       ),
