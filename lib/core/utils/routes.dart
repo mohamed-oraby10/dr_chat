@@ -14,8 +14,6 @@ import 'package:new_dr_chat_application/Features/Chat/presentation/views/chat_vi
 import 'package:new_dr_chat_application/Features/History/presentation/views/history_view.dart';
 import 'package:new_dr_chat_application/Features/Onboarding/presentation/views/onboarding_view.dart';
 import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_chat_view.dart';
-import 'package:new_dr_chat_application/Features/Splash/presentation/views/splash_view.dart';
-import 'package:new_dr_chat_application/core/services/local_storage_service.dart';
 import 'package:new_dr_chat_application/core/utils/constants.dart';
 import 'package:new_dr_chat_application/core/widgets/buttom_navigation_bar.dart';
 
@@ -37,20 +35,22 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         builder: (context, state) {
-          final isFirstTime = LocalStorageService.instance.getFirstTime();
-          final user = FirebaseAuth.instance.currentUser;
+          return StreamBuilder<User?>(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const SplashChatView();
+              }
 
-          if (isFirstTime) {
-            LocalStorageService.instance.setFirstTime(false);
-            LocalStorageService.instance.setAppOpenedBefore(true);
-            return const SplashView();
-          }
+              final user = snapshot.data;
 
-          if (user != null) {
-            return const SplashChatView();
-          }
-
-          return const ChatFreeView();
+              if (user != null) {
+                return const SplashChatView();
+              } else {
+                return const ChatFreeView();
+              }
+            },
+          );
         },
       ),
 
