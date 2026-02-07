@@ -18,16 +18,16 @@ class _SplashChatViewState extends State<SplashChatView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       final user = FirebaseAuth.instance.currentUser;
 
       if (!mounted) return;
 
-      if (user != null) {
-        final chatId = FirebaseFirestore.instance.collection(kChats).doc().id;
-        context.go('/chatView', extra: chatId);
+      if (user == null) {
+      context.go('/chatFreeView');
       } else {
-        context.go('/chatFreeView');
+         final chatId = FirebaseFirestore.instance.collection(kChats).doc().id;
+        context.go('/chatView', extra: chatId);
       }
     });
   }
